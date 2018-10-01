@@ -3,7 +3,7 @@ process.env.NODE_ENV= process.env.NODE_ENV || "dev"
 if(process.env.NODE_ENV === "test"){
     require('dotenv').config('./.test.env');
 }else{
-    require('dotenv').config();
+    require('dotenv').config('./.dev.env');
 }
 
 const api=require('./config/express'),
