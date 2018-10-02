@@ -18,6 +18,10 @@ api.use((err,req,res,next)=>{
 })
 
 require('../api/company/company.route')(router);
+require('../api/operator/operator.route')(router);
+require('../api/parameter_control/pcontrol.route')(router);
+require('../api/product/product.route')(router);
+require('../api/sales/sales.route')(router);
 
 api.use(router);
 

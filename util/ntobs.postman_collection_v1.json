@@ -1,0 +1,621 @@
+{
+	"id": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+	"name": "ntobs",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"name": "company",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"order": [
+				"57c72247-62ee-88f7-3a4a-d2edc16ac50f",
+				"91b58a0c-1d9d-f20a-8e13-1f70f11db559",
+				"a5e57fee-33f4-df1e-1b12-d63ddc8fd0a0"
+			],
+			"owner": "1880809",
+			"folders_order": [],
+			"id": "cd8e4ce9-0815-d146-92b6-ffacf4cd822c"
+		},
+		{
+			"name": "operator",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"order": [
+				"fcaf0a53-61dc-327b-6b7a-cffd170b422e",
+				"b0257e9f-194f-de07-47fb-49ac6ba71da2",
+				"ea7f61c5-40cb-de70-63eb-ddf7c7916493"
+			],
+			"owner": "1880809",
+			"folders_order": [],
+			"id": "ebd958b3-b85c-903c-fdc5-2f7039114a14"
+		},
+		{
+			"name": "parameter control",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"order": [
+				"b5c79c6f-acec-0e7c-bd75-e79b682ba95f",
+				"5c6dd6fc-bf30-4843-702f-d888c730a1f1",
+				"dce94261-f4c6-705a-4795-77667dcfccd3"
+			],
+			"owner": "1880809",
+			"folders_order": [],
+			"id": "eb2e6fbf-4416-af77-4094-e8330a855245"
+		},
+		{
+			"name": "products",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"order": [
+				"d48e4e82-71c9-cb51-e148-068eabd0b7ba",
+				"5369780b-5350-3fe8-165f-5185fbce6a25",
+				"05ed1437-2c2b-d2fd-4563-d852ba47b3d4"
+			],
+			"owner": "1880809",
+			"folders_order": [],
+			"id": "0e250bab-6d3a-a475-7cd2-4ea8543d8a82"
+		},
+		{
+			"name": "sales",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"order": [
+				"6e2824ec-9f25-bd22-e9d9-a0a3c722cdd8",
+				"540b21af-973f-45f0-8b5c-5e3bcaf0561d",
+				"6ac3a353-9ae5-3788-5ee8-3cf088877307",
+				"365f3d81-6270-dbb6-1019-fe9ebb8b68f2"
+			],
+			"owner": "1880809",
+			"folders_order": [],
+			"id": "f3f03388-56c5-0ba6-df44-ad8e2a452f5c"
+		}
+	],
+	"folders_order": [
+		"cd8e4ce9-0815-d146-92b6-ffacf4cd822c",
+		"ebd958b3-b85c-903c-fdc5-2f7039114a14",
+		"eb2e6fbf-4416-af77-4094-e8330a855245",
+		"0e250bab-6d3a-a475-7cd2-4ea8543d8a82",
+		"f3f03388-56c5-0ba6-df44-ad8e2a452f5c"
+	],
+	"timestamp": 1538403368041,
+	"owner": "1880809",
+	"public": false,
+	"requests": [
+		{
+			"id": "05ed1437-2c2b-d2fd-4563-d852ba47b3d4",
+			"headers": "domain: {{domain}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/product/5bb36c54da67e63039fc93f6",
+			"folder": "0e250bab-6d3a-a475-7cd2-4ea8543d8a82",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538485527190,
+			"name": "update product",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"chain1\",\n    \"metal\": \"GOLD\",\n    \"category\": \"ORNAMENTS\",\n    \"type\": \"weight\",\n    \"wastageType\": \"percentpg\",\n    \"wastage\": \"2\",\n    \"mcType\": \"valuepg\",\n    \"makingCharge\": \"50\",\n    \"otherCharge\": \"10\",\n    \"description\": \"sample\",\n    \"weight\": \"8\",\n    \"value\": \"\",\n    \"quantity\": \"1\"\n}"
+		},
+		{
+			"id": "365f3d81-6270-dbb6-1019-fe9ebb8b68f2",
+			"headers": "domain: {{domain}}\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/operator",
+			"folder": "f3f03388-56c5-0ba6-df44-ad8e2a452f5c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538484977143,
+			"name": "read operator copy",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"isFromCollection": true,
+			"collectionRequestId": "b0257e9f-194f-de07-47fb-49ac6ba71da2"
+		},
+		{
+			"id": "5369780b-5350-3fe8-165f-5185fbce6a25",
+			"headers": "Content-Type: application/json\ndomain: {{domain}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/product",
+			"folder": "0e250bab-6d3a-a475-7cd2-4ea8543d8a82",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538485532463,
+			"name": "create product",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"chain\",\n    \"metal\": \"GOLD\",\n    \"category\": \"ORNAMENTS\",\n    \"type\": \"weight\",\n    \"wastageType\": \"percentpg\",\n    \"wastage\": \"2\",\n    \"mcType\": \"valuepg\",\n    \"makingCharge\": \"50\",\n    \"otherCharge\": \"10\",\n    \"description\": \"sample\",\n    \"weight\": \"8\",\n    \"value\": \"\",\n    \"quantity\": \"1\"\n}"
+		},
+		{
+			"id": "540b21af-973f-45f0-8b5c-5e3bcaf0561d",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/api/sales/:id",
+			"folder": "f3f03388-56c5-0ba6-df44-ad8e2a452f5c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {
+				"id": ""
+			},
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": ""
+				}
+			],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"time": 1538404951032,
+			"name": "read sales",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"timestamp": null
+		},
+		{
+			"id": "57c72247-62ee-88f7-3a4a-d2edc16ac50f",
+			"headers": "domain: {{domain}}\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/company",
+			"folder": "cd8e4ce9-0815-d146-92b6-ffacf4cd822c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538482217498,
+			"name": "read company",
+			"description": "get company",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": []
+		},
+		{
+			"id": "5c6dd6fc-bf30-4843-702f-d888c730a1f1",
+			"headers": "Content-Type: application/json\ndomain: {{domain}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/parameter",
+			"folder": "eb2e6fbf-4416-af77-4094-e8330a855245",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538484786391,
+			"name": "create parameter",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"METAL\",\n    \"type\": \"text\",\n    \"value\": \"GOLD,SILVER\",\n    \"updatedBy\": \"5bb368ad7be2132ee7daca24\",\n    \"domain\":\"MANI\"\n}"
+		},
+		{
+			"id": "6ac3a353-9ae5-3788-5ee8-3cf088877307",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/api/sales/:id",
+			"folder": "f3f03388-56c5-0ba6-df44-ad8e2a452f5c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {
+				"id": ""
+			},
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": ""
+				}
+			],
+			"method": "PUT",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"time": 1538404955409,
+			"name": "update sale",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"timestamp": null
+		},
+		{
+			"id": "6e2824ec-9f25-bd22-e9d9-a0a3c722cdd8",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/api/sales/:id",
+			"folder": "f3f03388-56c5-0ba6-df44-ad8e2a452f5c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {
+				"id": ""
+			},
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": ""
+				}
+			],
+			"method": "POST",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"time": 1538404947048,
+			"name": "create sale",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"timestamp": null
+		},
+		{
+			"id": "91b58a0c-1d9d-f20a-8e13-1f70f11db559",
+			"headers": "Content-Type: application/json\ndomain: {{domain}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/company/",
+			"folder": "cd8e4ce9-0815-d146-92b6-ffacf4cd822c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538484083413,
+			"name": "create company",
+			"description": "get company",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"rawModeData": "{\n\t\"company\":{\n\t\t\"domain\":\"AYSHA\",\n\t\t\"name\":\"draw works\",\n\t\t\"key\":\"XXDDMWEWE\",\n\t\t\"status\":\"active\"\n\t},\n\t\"operator\":{\n\t\t\"name\":\"mani\",\n\t\t\"loginId\":\"kmani1011217823@gmail.com\",\n\t\t\"password\":\"password12378756\",\n\t\t\"type\":\"admin\",\n\t\t\"authType\":\"local\",\n\t\t\"status\":\"active\"\n\t}\n}"
+		},
+		{
+			"id": "a5e57fee-33f4-df1e-1b12-d63ddc8fd0a0",
+			"headers": "Content-Type: application/json\ndomain: {{domain}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/company/update/5bb361a24885a32bfb2397ce",
+			"folder": "cd8e4ce9-0815-d146-92b6-ffacf4cd822c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538484080912,
+			"name": "update company",
+			"description": "get company",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\":\"draw works\",\n\t\"key\":\"XXDDMWEWE\",\n\t\"status\":\"active\"\n}"
+		},
+		{
+			"id": "b0257e9f-194f-de07-47fb-49ac6ba71da2",
+			"headers": "domain: {{domain}}\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/operator",
+			"folder": "ebd958b3-b85c-903c-fdc5-2f7039114a14",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538484977143,
+			"name": "read operator",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": []
+		},
+		{
+			"id": "b5c79c6f-acec-0e7c-bd75-e79b682ba95f",
+			"headers": "domain: {{domain}}\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/parameter",
+			"folder": "eb2e6fbf-4416-af77-4094-e8330a855245",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538484973830,
+			"name": "read parameter",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": []
+		},
+		{
+			"id": "d48e4e82-71c9-cb51-e148-068eabd0b7ba",
+			"headers": "domain: {{domain}}\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/product",
+			"folder": "0e250bab-6d3a-a475-7cd2-4ea8543d8a82",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538485528749,
+			"name": "read product",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": []
+		},
+		{
+			"id": "dce94261-f4c6-705a-4795-77667dcfccd3",
+			"headers": "domain: {{domain}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/parameter/5bb36a2e08fd672f35dd9dc8",
+			"folder": "eb2e6fbf-4416-af77-4094-e8330a855245",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538484971217,
+			"name": "update parameter",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"METAL\",\n    \"type\": \"text\",\n    \"value\": \"GOLD,SILVER,PLATINUM\",\n    \"updatedBy\": \"5bb368ad7be2132ee7daca24\",\n    \"domain\":\"MANI\"\n}"
+		},
+		{
+			"id": "ea7f61c5-40cb-de70-63eb-ddf7c7916493",
+			"headers": "domain: {{domain}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/operator/5bb368ad7be2132ee7daca24",
+			"folder": "ebd958b3-b85c-903c-fdc5-2f7039114a14",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538484975870,
+			"name": "update operator",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\":\"mani k\",\n\t\"loginId\":\"rani@gmail.com\",\n\t\"password\":\"password234512378756\",\n\t\"type\":\"admin\",\n\t\"authType\":\"local\",\n\t\"status\":\"active\",\n\t\"domain\":\"MANI\"\n}"
+		},
+		{
+			"id": "fcaf0a53-61dc-327b-6b7a-cffd170b422e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/operator",
+			"folder": "ebd958b3-b85c-903c-fdc5-2f7039114a14",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1538484978504,
+			"name": "create operator",
+			"description": "",
+			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\":\"mani k\",\n\t\"loginId\":\"rani@gmail.com\",\n\t\"password\":\"password12378756\",\n\t\"type\":\"admin\",\n\t\"authType\":\"local\",\n\t\"status\":\"active\",\n\t\"domain\":\"MANI\"\n}"
+		}
+	]
+}

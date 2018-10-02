@@ -1,6 +1,15 @@
+const cons=require('../../util/constants');
+const companyController=require('./company.controller');
 
 module.exports=(api)=>{
-    api.get('/api/company',(req,res,next)=>{
-        res.status(200).send("inside create company");
-    })
+    
+    api.route(cons.company)
+    .post(companyController.createCompany)
+    .get(companyController.getAllCompany);
+
+    api.route(cons.updateCompany)
+    .put(companyController.updateCompany);
+
+    api.route(cons.readCompany)
+    .get(companyController.getCompanyByDomainName);
 }

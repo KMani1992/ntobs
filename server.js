@@ -6,8 +6,8 @@ if(process.env.NODE_ENV === "test"){
     require('dotenv').config();
 }
 
-const api=require('./config/express'),
-db=require('./config/mongoose');
+const db=require('./config/mongoose'),
+api=require('./config/express');
 
 
 

@@ -1,0 +1,405 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ntobs",
+		"_postman_id": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "company",
+			"description": "",
+			"item": [
+				{
+					"name": "read company",
+					"request": {
+						"url": "{{host}}/api/company",
+						"method": "GET",
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "get company"
+					},
+					"response": []
+				},
+				{
+					"name": "create company",
+					"request": {
+						"url": "{{host}}/api/company/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"company\":{\n\t\t\"domain\":\"AYSHA\",\n\t\t\"name\":\"draw works\",\n\t\t\"key\":\"XXDDMWEWE\",\n\t\t\"status\":\"active\"\n\t},\n\t\"operator\":{\n\t\t\"name\":\"mani\",\n\t\t\"loginId\":\"kmani1011217823@gmail.com\",\n\t\t\"password\":\"password12378756\",\n\t\t\"type\":\"admin\",\n\t\t\"authType\":\"local\",\n\t\t\"status\":\"active\"\n\t}\n}"
+						},
+						"description": "get company"
+					},
+					"response": []
+				},
+				{
+					"name": "update company",
+					"request": {
+						"url": "{{host}}/api/company/update/5bb361a24885a32bfb2397ce",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"draw works\",\n\t\"key\":\"XXDDMWEWE\",\n\t\"status\":\"active\"\n}"
+						},
+						"description": "get company"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "operator",
+			"description": "",
+			"item": [
+				{
+					"name": "create operator",
+					"request": {
+						"url": "{{host}}/api/operator",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"mani k\",\n\t\"loginId\":\"rani@gmail.com\",\n\t\"password\":\"password12378756\",\n\t\"type\":\"admin\",\n\t\"authType\":\"local\",\n\t\"status\":\"active\",\n\t\"domain\":\"MANI\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "read operator",
+					"request": {
+						"url": "{{host}}/api/operator",
+						"method": "GET",
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update operator",
+					"request": {
+						"url": "{{host}}/api/operator/5bb368ad7be2132ee7daca24",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"mani k\",\n\t\"loginId\":\"rani@gmail.com\",\n\t\"password\":\"password234512378756\",\n\t\"type\":\"admin\",\n\t\"authType\":\"local\",\n\t\"status\":\"active\",\n\t\"domain\":\"MANI\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "parameter control",
+			"description": "",
+			"item": [
+				{
+					"name": "read parameter",
+					"request": {
+						"url": "{{host}}/api/parameter",
+						"method": "GET",
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create parameter",
+					"request": {
+						"url": "{{host}}/api/parameter",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"METAL\",\n    \"type\": \"text\",\n    \"value\": \"GOLD,SILVER\",\n    \"updatedBy\": \"5bb368ad7be2132ee7daca24\",\n    \"domain\":\"MANI\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update parameter",
+					"request": {
+						"url": "{{host}}/api/parameter/5bb36a2e08fd672f35dd9dc8",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"METAL\",\n    \"type\": \"text\",\n    \"value\": \"GOLD,SILVER,PLATINUM\",\n    \"updatedBy\": \"5bb368ad7be2132ee7daca24\",\n    \"domain\":\"MANI\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"description": "",
+			"item": [
+				{
+					"name": "read product",
+					"request": {
+						"url": "{{host}}/api/product",
+						"method": "GET",
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create product",
+					"request": {
+						"url": "{{host}}/api/product",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"chain\",\n    \"metal\": \"GOLD\",\n    \"category\": \"ORNAMENTS\",\n    \"type\": \"weight\",\n    \"wastageType\": \"percentpg\",\n    \"wastage\": \"2\",\n    \"mcType\": \"valuepg\",\n    \"makingCharge\": \"50\",\n    \"otherCharge\": \"10\",\n    \"description\": \"sample\",\n    \"weight\": \"8\",\n    \"value\": \"\",\n    \"quantity\": \"1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"url": "{{host}}/api/product/5bb36c54da67e63039fc93f6",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"chain1\",\n    \"metal\": \"GOLD\",\n    \"category\": \"ORNAMENTS\",\n    \"type\": \"weight\",\n    \"wastageType\": \"percentpg\",\n    \"wastage\": \"2\",\n    \"mcType\": \"valuepg\",\n    \"makingCharge\": \"50\",\n    \"otherCharge\": \"10\",\n    \"description\": \"sample\",\n    \"weight\": \"8\",\n    \"value\": \"\",\n    \"quantity\": \"1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sales",
+			"description": "",
+			"item": [
+				{
+					"name": "create sale",
+					"request": {
+						"url": {
+							"raw": "{{host}}/api/sales/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"sales",
+								":id"
+							],
+							"query": [],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "read sales",
+					"request": {
+						"url": {
+							"raw": "{{host}}/api/sales/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"sales",
+								":id"
+							],
+							"query": [],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update sale",
+					"request": {
+						"url": {
+							"raw": "{{host}}/api/sales/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"sales",
+								":id"
+							],
+							"query": [],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "read operator copy",
+					"request": {
+						"url": "{{host}}/api/operator",
+						"method": "GET",
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
