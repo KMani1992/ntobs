@@ -190,34 +190,33 @@
 		},
 		{
 			"id": "540b21af-973f-45f0-8b5c-5e3bcaf0561d",
-			"headers": "",
-			"headerData": [],
-			"url": "{{host}}/api/sales/:id",
+			"headers": "domain: {{domain}}\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/sales",
 			"folder": "f3f03388-56c5-0ba6-df44-ad8e2a452f5c",
 			"queryParams": [],
 			"preRequestScript": null,
-			"pathVariables": {
-				"id": ""
-			},
-			"pathVariableData": [
-				{
-					"key": "id",
-					"value": ""
-				}
-			],
+			"pathVariables": {},
+			"pathVariableData": [],
 			"method": "GET",
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1538404951032,
+			"helperAttributes": {},
+			"time": 1538491475022,
 			"name": "read sales",
 			"description": "",
 			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
-			"responses": [],
-			"timestamp": null
+			"responses": []
 		},
 		{
 			"id": "57c72247-62ee-88f7-3a4a-d2edc16ac50f",
@@ -288,65 +287,77 @@
 		},
 		{
 			"id": "6ac3a353-9ae5-3788-5ee8-3cf088877307",
-			"headers": "",
-			"headerData": [],
-			"url": "{{host}}/api/sales/:id",
+			"headers": "domain: {{domain}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/sales/3052018902195742760",
 			"folder": "f3f03388-56c5-0ba6-df44-ad8e2a452f5c",
 			"queryParams": [],
 			"preRequestScript": null,
-			"pathVariables": {
-				"id": ""
-			},
-			"pathVariableData": [
-				{
-					"key": "id",
-					"value": ""
-				}
-			],
+			"pathVariables": {},
+			"pathVariableData": [],
 			"method": "PUT",
-			"data": null,
-			"dataMode": "params",
+			"data": [],
+			"dataMode": "raw",
 			"version": 2,
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1538404955409,
+			"helperAttributes": {},
+			"time": 1538491479039,
 			"name": "update sale",
 			"description": "",
 			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
 			"responses": [],
-			"timestamp": null
+			"rawModeData": "[{\n    \"product\": \"5bb36c54da67e63039fc93f6\",\n    \"weight\": \"4\",\n    \"wastage\": \"2\",\n    \"makingCharge\": \"11\",\n    \"otherCharge\": \"10\",    \n    \"updatedBy\": \"5bb368ad7be2132ee7daca24\",\n    \"_id\": \"5bb3805e780ffc3535b4a0a2\"\n    \n}]"
 		},
 		{
 			"id": "6e2824ec-9f25-bd22-e9d9-a0a3c722cdd8",
-			"headers": "",
-			"headerData": [],
-			"url": "{{host}}/api/sales/:id",
+			"headers": "domain: {{domain}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "domain",
+					"value": "{{domain}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/api/sales",
 			"folder": "f3f03388-56c5-0ba6-df44-ad8e2a452f5c",
 			"queryParams": [],
 			"preRequestScript": null,
-			"pathVariables": {
-				"id": ""
-			},
-			"pathVariableData": [
-				{
-					"key": "id",
-					"value": ""
-				}
-			],
+			"pathVariables": {},
+			"pathVariableData": [],
 			"method": "POST",
-			"data": null,
-			"dataMode": "params",
+			"data": [],
+			"dataMode": "raw",
 			"version": 2,
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1538404947048,
+			"helperAttributes": {},
+			"time": 1538491481522,
 			"name": "create sale",
 			"description": "",
 			"collectionId": "125deb55-95d3-64c8-b6d7-9f845db4ad62",
 			"responses": [],
-			"timestamp": null
+			"rawModeData": "[{\n\t\n    \n    \"product\": \"5bb36c54da67e63039fc93f6\",\n    \"weight\": \"4\",\n    \"wastage\": \"2\",\n    \"makingCharge\": \"50\",\n    \"otherCharge\": \"10\",    \n    \"updatedBy\": \"5bb368ad7be2132ee7daca24\"\n    \n}]"
 		},
 		{
 			"id": "91b58a0c-1d9d-f20a-8e13-1f70f11db559",

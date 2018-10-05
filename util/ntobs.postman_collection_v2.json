@@ -301,27 +301,24 @@
 				{
 					"name": "create sale",
 					"request": {
-						"url": {
-							"raw": "{{host}}/api/sales/:id",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"sales",
-								":id"
-							],
-							"query": [],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						},
+						"url": "{{host}}/api/sales",
 						"method": "POST",
-						"header": [],
-						"body": {},
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n\t\n    \n    \"product\": \"5bb36c54da67e63039fc93f6\",\n    \"weight\": \"4\",\n    \"wastage\": \"2\",\n    \"makingCharge\": \"50\",\n    \"otherCharge\": \"10\",    \n    \"updatedBy\": \"5bb368ad7be2132ee7daca24\"\n    \n}]"
+						},
 						"description": ""
 					},
 					"response": []
@@ -329,26 +326,15 @@
 				{
 					"name": "read sales",
 					"request": {
-						"url": {
-							"raw": "{{host}}/api/sales/:id",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"sales",
-								":id"
-							],
-							"query": [],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						},
+						"url": "{{host}}/api/sales",
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							}
+						],
 						"body": {},
 						"description": ""
 					},
@@ -357,27 +343,24 @@
 				{
 					"name": "update sale",
 					"request": {
-						"url": {
-							"raw": "{{host}}/api/sales/:id",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"sales",
-								":id"
-							],
-							"query": [],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						},
+						"url": "{{host}}/api/sales/3052018902195742760",
 						"method": "PUT",
-						"header": [],
-						"body": {},
+						"header": [
+							{
+								"key": "domain",
+								"value": "{{domain}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"product\": \"5bb36c54da67e63039fc93f6\",\n    \"weight\": \"4\",\n    \"wastage\": \"2\",\n    \"makingCharge\": \"11\",\n    \"otherCharge\": \"10\",    \n    \"updatedBy\": \"5bb368ad7be2132ee7daca24\",\n    \"_id\": \"5bb3805e780ffc3535b4a0a2\"\n    \n}]"
+						},
 						"description": ""
 					},
 					"response": []

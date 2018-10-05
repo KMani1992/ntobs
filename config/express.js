@@ -3,6 +3,7 @@ const bodyParser=require('body-parser');
 const logger=require('morgan');
 const api=express();
 
+api.use(express.static('dist'));
 api.use(bodyParser.json('limit:50mb'));
 api.use(logger(process.env.NODE_ENV || 'dev'));
 
