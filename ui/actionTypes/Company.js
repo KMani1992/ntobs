@@ -1,0 +1,1 @@
+export const CREATE_COMPANY="CREATE_COMPANY";

@@ -4,6 +4,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Home from './components/home/Home';
 import './components/home/Home.css'
+import CompanyContainer from './containers/Company';
 
 const PageRouter = ({ history }) => (
     <div>
@@ -11,7 +12,8 @@ const PageRouter = ({ history }) => (
             <React.Fragment>
                 <Header />                
                     <Switch>
-                        <Route path="/" component={Home} />
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/company" component={CompanyContainer} />
                     </Switch>                
                 <Footer />
             </React.Fragment>

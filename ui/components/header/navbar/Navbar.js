@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import {Link} from 'react-router-dom';
 
 export default class Navbar extends Component {
 
@@ -19,11 +20,13 @@ export default class Navbar extends Component {
             <nav className="light-blue lighten-1" role="navigation">
                 <div className="nav-wrapper container"><a id="logo-container" title="non tag based online billing system" href="#" className="brand-logo">NTOBS</a>
                     <ul className="right hide-on-med-and-down">
-                        <li><a href="#">Navbar Link</a></li>
+                        <li><Link to="/signup">Operator Sign Up</Link></li>
+                        <li><Link to="/login">Log In</Link></li>
                     </ul>
 
                     <ul id="nav-mobile" className="sidenav">
-                        <li><a href="#">Navbar Link</a></li>
+                        <li><Link to="/signup">Operator Sign Up</Link></li>
+                        <li><Link to="/login">Log In</Link></li>
                     </ul>
                     <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                 </div>

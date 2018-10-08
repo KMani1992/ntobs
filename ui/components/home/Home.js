@@ -16,7 +16,7 @@ class Home extends Component {
                         <br /><br />
                         <h1 className="header center orange-text">Swift Billing System</h1>
                         <div className="row center">
-                            <h5 className="header col s12 light">A SASS based nontaged item billing system</h5>
+                            <h5 className="header col s12 light">A SaaS based nontaged item billing system</h5>
                         </div>
                         <div className="row center">
                             <Link id="download-button" 
