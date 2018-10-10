@@ -32,9 +32,10 @@ module.exports = {
   devServer: {
     port: 3000,
     open: false,
-    proxy: {
+    proxy: {      
       '/api': 'http://localhost:8081'
-    }
+    },
+    historyApiFallback:true
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),

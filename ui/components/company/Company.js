@@ -14,40 +14,36 @@ const Company = props => {
                         <h5 className="left-align orange-text">Company Register</h5>
                     </div>        
                     <div className="row">
-                        <div className="input-field col s12 m6">
-                            <label htmlFor="domain">Domain Name</label>
-                            <Field name="domain" component="input" type="text" />
+                        <div className="input-field col s12 m6">                           
+                            <Field id="domain" component="input" type="text" className="validate" />
+                            <label for="domain">Domain Name</label>
                         </div>
-                        <div className="input-field col s12 m6">
-                            <label htmlFor="company">Company Name</label>
-                            <Field name="company" component="input" type="text" />
+                        <div className="input-field col s12 m6">                            
+                            <Field id="company" component="input" type="text" className="validate" />
+                            <label for="company">Company Name</label>
                         </div>
                     </div>
-                    
-
                     <div className="row">
-                        <div className="input-field col s12 m6">
-                            <label htmlFor="key">Activation Key</label>
-                            <Field name="key" component="input" type="text" />
+                        <div className="input-field col s12 m6">                            
+                            <Field id="key" component="input" type="text" className="validate" />
+                            <label for="key">Activation Key</label>
                             <span className="helper-text">To get Activation Key contact &nbsp;<a href="mailto:kmanikandangce@gmail.com">kmanikandangce@gmail.com</a></span>
                         </div>
                     
-                        <div className="input-field col s12 m6">
-                            <label htmlFor="name">Admin User Name</label>
-                            <Field name="name" component="input" type="text" />
+                        <div className="input-field col s12 m6">                            
+                            <Field id="name" component="input" type="text" className="validate" />
+                            <label for="name">Admin User Name</label>
                         </div>
                     </div>
-
-
                     <div className="row">
-                        <div className="input-field col s12 m6">
-                            <label htmlFor="login">Login ID(eg:sample@email.com)</label>
-                            <Field name="login" component="input" type="text" />
+                        <div className="input-field col s12 m6">                            
+                            <Field id="login" component="input" type="email"  className="validate" />
+                            <label for="login">Login ID (eg:sample@email.com)</label>
                         </div>
 
-                        <div className="input-field col s12 m6">
-                            <label htmlFor="password">Password</label>
-                            <Field name="password" component="input" type="password" />
+                        <div className="input-field col s12 m6">                            
+                            <Field id="password" component="input" type="password" className="validate" />
+                            <label for="password">Password</label>
                         </div>
                     </div>
                     <div className="row">
@@ -55,8 +51,7 @@ const Company = props => {
                             Create Company
                             <i className="material-icons right">send</i>                            
                         </button>
-                    </div>                    
-
+                    </div>
                     <br />
                     <br />
                     <br />

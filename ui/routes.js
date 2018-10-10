@@ -13,7 +13,7 @@ const PageRouter = ({ history }) => (
                 <Header />                
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        <Route exact path="/company" component={CompanyContainer} />
+                        <Route path="/company" component={CompanyContainer} />
                     </Switch>                
                 <Footer />
             </React.Fragment>
