@@ -18,7 +18,8 @@ export default class Navbar extends Component {
     render() {
         return (            
             <nav className="light-blue lighten-1" role="navigation">
-                <div className="nav-wrapper container"><a id="logo-container" title="non tag based online billing system" href="#" className="brand-logo">NTOBS</a>
+                <div className="nav-wrapper container">
+                    <Link id="logo-container" title="non tag based online billing system" to="/" className="brand-logo">NTOBS</Link>
                     <ul className="right hide-on-med-and-down">
                         <li><Link to="/signup">Operator Sign Up</Link></li>
                         <li><Link to="/login">Log In</Link></li>

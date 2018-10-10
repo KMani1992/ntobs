@@ -10,7 +10,7 @@
     "client": "webpack-dev-server --watch --mode development --devtool inline-source-map --hot --progress -d",
     "server": "nodemon server.js",
     "dev": "concurrently 'npm run server' 'npm run client'",
-    "dev-client": "concurrently 'npm run client'"
+    "dev-client": "npm run client"
   },
   "repository": {
     "type": "git",
