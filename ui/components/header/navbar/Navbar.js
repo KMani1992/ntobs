@@ -20,13 +20,11 @@ export default class Navbar extends Component {
             <nav className="light-blue lighten-1" role="navigation">
                 <div className="nav-wrapper container">
                     <Link id="logo-container" title="non tag based online billing system" to="/" className="brand-logo">NTOBS</Link>
-                    <ul className="right hide-on-med-and-down">
-                        <li><Link to="/signup">Operator Sign Up</Link></li>
+                    <ul className="right hide-on-med-and-down">                        
                         <li><Link to="/login">Log In</Link></li>
                     </ul>
 
-                    <ul id="nav-mobile" className="sidenav">
-                        <li><Link to="/signup">Operator Sign Up</Link></li>
+                    <ul id="nav-mobile" className="sidenav">                        
                         <li><Link to="/login">Log In</Link></li>
                     </ul>
                     <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
