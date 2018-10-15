@@ -1,1 +1,2 @@
 export const CREATE_COMPANY="CREATE_COMPANY";
+export const CLEAR_STATE="CLEAR_STATE";

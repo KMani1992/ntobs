@@ -1,11 +1,12 @@
 const passwordHash = require('password-hash');
 
 exports.hashPassword=(plainPassword)=>{
-    const hashedPassword = passwordHash.generate('password123');
+    const hashedPassword = passwordHash.generate(plainPassword);
     return hashedPassword;
 }
 
 exports.verifyPassword=(plainPassword,hashedPassword)=>{
+    //console.log("verify",plainPassword,hashedPassword);
     const verifyStatus = passwordHash.verify(plainPassword,hashedPassword);
     return verifyStatus;
 }

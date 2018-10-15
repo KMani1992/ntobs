@@ -1,21 +1,19 @@
-import *  as HomeActionTypes from '../actionTypes/Home';
-import * as CompanyInitialState from '../state/Company';
+import * as CompanyActionTypes from "../actionTypes/Company";
 
-export default (state = CompanyInitialState, action) => {
+export default (state = {}, action) => {
+  
+  const nextState = { ...state };
 
-    const nextState = {...state};
-
-    switch (action.type) {
-        case HomeActionTypes.HANDLE_CHANGE:
-            return {
-                ...nextState,
-                company:{
-                    ...nextState.company
-                }                
-            };
-        default:
-            return {
-                 state
-            };
-    }
-}
+  switch (action.type) {
+    case CompanyActionTypes.CLEAR_STATE:
+      return {
+        ...nextState,        
+      };
+    case CompanyActionTypes.CREATE_COMPANY:
+      return {        
+        ...action.data,
+      };
+    default:
+      return state;
+  }
+};

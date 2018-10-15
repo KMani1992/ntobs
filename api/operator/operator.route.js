@@ -3,6 +3,8 @@ const operatorController=require('./operator.controller');
 
 module.exports=(api)=>{
 
+    api.route(cons.login)
+    .post(operatorController.login);
 
     api.route(cons.readOperator)
     .get(operatorController.getOperatorById);
@@ -13,6 +15,4 @@ module.exports=(api)=>{
 
     api.route(cons.updateOperator)
     .put(operatorController.updateOperator);
-
-
 }
