@@ -8,6 +8,13 @@ import CompanyContainer from './containers/Company';
 import LoginContainer from './containers/Login'
 import DashboardContainer from './containers/Dashboard'
 
+import OperatorContainer from './containers/Operator'
+import PControlContainer from './containers/PControl'
+import ProductContainer from './containers/Product'
+import SalesContainer from './containers/Sales'
+import SalesReportContainer from './containers/SalesReport'
+
+
 
 const PageRouter = ({ history }) => (
     <div>
@@ -19,6 +26,11 @@ const PageRouter = ({ history }) => (
                         <Route exact path="/company" component={CompanyContainer} />
                         <Route exact path="/login" component={LoginContainer} />
                         <Route exact path="/dashboard" component={DashboardContainer} />
+                        <Route exact path="/operator" component={OperatorContainer} />
+                        <Route exact path="/pcontrol" component={PControlContainer} />
+                        <Route exact path="/product" component={ProductContainer} />
+                        <Route exact path="/sales" component={SalesContainer} />
+                        <Route exact path="/sales-report" component={SalesReportContainer} />
                     </Switch>                
                 <Footer />
             </React.Fragment>

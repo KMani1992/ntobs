@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import $ from "jquery";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
-import * as pcontrolActionCreator from "../../actionCreators/PControl";
+import * as salesActionCreator from "../../actionCreators/Sales";
 
-class PControl extends Component {
+class Sales extends Component {
   constructor() {
     document.addEventListener("DOMContentLoaded", () => {
       const element = document.querySelectorAll(".tabs");
@@ -13,22 +13,13 @@ class PControl extends Component {
     });
   }
 
-  editPControl = e => {
+  editSales = e => {
     console.log(e.value);
-    this.props.load.editPControlPopulate(e.value);
+    this.props.load.editSalesPopulate(e.value);
   };
   render() {
-    const { handleSubmit, pcontrolList } = this.props;
-/**
- * name: { type: String },
-    type: { type: String, enum: ["text", "number","date"], default: "text" },
-    value: { type: String},
-    status: { type: String, enum: ["active", "inactive", "locked"],default:"active" },
-    created: { type: Date, default: Date.now },
-    updated: { type: Date, default: Date.now },
-    updatedBy: { type: schema.Types.ObjectId, ref: "operator" },
-    domain:
- */
+    const { handleSubmit, salesList } = this.props;
+
     return (
       <main>
         <div className="section no-pad-bot">
@@ -47,7 +38,7 @@ class PControl extends Component {
               <div id="entry" className="col s12">
                 <form onSubmit={handleSubmit} className="col s12">
                   <div className="row no-pad-left">
-                    <h5 className="left-align orange-text">PControl</h5>
+                    <h5 className="left-align orange-text">sales</h5>
                     <Field
                       name="mode"
                       id="mode"
@@ -58,23 +49,24 @@ class PControl extends Component {
                   <div className="row">
                     <div className="input-field col s12 m6">
                       <Field
-                        name="paramName"
-                        id="paramName"
+                        name="userName"
+                        id="name"
                         component="input"
                         type="text"
                         className="validate"
                       />
-                      <label for="paramName">Parameter Name</label>
+                      <label for="name">User Name</label>
                     </div>
 
                     <div className="input-field col s12 m6">
                       <Field
-                        name="paramType"
-                        id="paramType"
-                        component="combobox"                        
+                        name="login"
+                        id="login"
+                        component="input"
+                        type="email"
                         className="validate"
                       />
-                      <label for="paramType">Parameter Type</label>
+                      <label for="login">Login ID (eg:sample@email.com)</label>
                     </div>
                   </div>
                   <div className="row">
@@ -90,16 +82,60 @@ class PControl extends Component {
                     </div>
                     <div className="input-field col s12 m6">
                       <Field
+                        name="userType"
+                        id="userType"
+                        component="input"
+                        type="text"
+                        className="validate"
+                      />
+                      <label for="userType">User Type</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="input-field col s12 m6">
+                      <Field
+                        name="authType"
+                        id="authType"
+                        component="input"
+                        type="text"
+                        className="validate"
+                      />
+                      <label for="authType">Auth Type</label>
+                    </div>
+                    <div className="input-field col s12 m6">
+                      <Field
                         name="status"
                         id="status"
                         component="input"
-                        type="checkbox"
+                        type="text"
                         className="validate"
                       />
                       <label for="status">Status</label>
                     </div>
                   </div>
-                 
+
+                  <div className="row">
+                    <div className="input-field col s12 m6">
+                      <Field
+                        name="password"
+                        id="password"
+                        component="input"
+                        type="password"
+                        className="validate"
+                      />
+                      <label for="password">Password</label>
+                    </div>
+                    <div className="input-field col s12 m6">
+                      <Field
+                        name="created"
+                        id="created"
+                        component="input"
+                        type="text"
+                        className="validate"
+                      />
+                      <label for="created">Created</label>
+                    </div>
+                  </div>
                   <div className="row">
                     <button
                       className="btn waves-effect waves-light orange"
@@ -134,15 +170,15 @@ class PControl extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {pcontrolList.map((pcontrol, i) => {
+                    {salesList.map((sales, i) => {
                       return (
                         <tr key={i}>
-                          <td>{pcontrol.name}</td>
-                          <td>{pcontrol.login}</td>
+                          <td>{sales.name}</td>
+                          <td>{sales.login}</td>
                           <td>
                             <button
-                              value={pcontrol}
-                              onClick={this.editpcontrol}
+                              value={sales}
+                              onClick={this.editsales}
                             >
                               Edit
                             </button>
@@ -162,11 +198,11 @@ class PControl extends Component {
 }
 
 const mapStateToProps = state => ({
-  initialValues: state.pcontrol.default
+  initialValues: state.sales.default
 });
 
 const mapActionToProps = {
-  load: pcontrolActionCreator
+  load: salesActionCreator
 };
 
-export default reduxForm({ form: "pcontrol" })(PControl);
+export default reduxForm({ form: "sales" })(Sales);

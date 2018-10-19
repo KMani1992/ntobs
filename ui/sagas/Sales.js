@@ -1,68 +1,68 @@
 import { takeLatest } from "redux-saga";
-import * as OPERATOR_TYPE from "../actionTypes/Operator";
+import * as SALES_TYPE from "../actionTypes/Sales";
 import * as constants from "../util/constants";
 import { doPost } from "../util/httpWrapper";
 import * as commonActionCreators from "../actionCreators/Common";
-import * as operatorActionCreators from "../actionCreators/Operator";
+import * as salesActionCreators from "../actionCreators/Sales";
 
-export function* saveOperator(action) {
+export function* saveSales(action) {
   try {
-    console.log("inside operator", action);
+    console.log("inside Sales", action);
     yield put(commonActionCreators.loading(true));
-    const response = yield doPost(constants.CREATE_OPERATOR, action.data);
+    const response = yield doPost(constants.CREATE_SALES, action.data);
     console.log("response", response);
     if (response.status == 200) {
-      yield put(operatorActionCreators.readOperatorSucces(response));
+      yield put(salesActionCreators.readSalesSucces(response));
       yield put(commonActionCreators.success(response));
     } else {
       yield put(commonActionCreators.error(response));
     }
   } catch (error) {
-    console.error("error orrcued in save operator saga", error);
+    console.error("error orrcued in save Sales saga", error);
     yield put(commonActionCreators.error(error));
   }
 }
 
-export function* editOperator(action) {
+export function* editSales(action) {
   try {
-    console.log("inside operator edit", action);
+    console.log("inside Sales edit", action);
     yield put(commonActionCreators.loading(true));
-    const response = yield doPost(constants.UPDATE_OPERATOR, action.data);
+    const response = yield doPost(constants.UPDATE_SALES, action.data);
     console.log("response", response);
     if (response.status == 200) {
-      yield put(operatorActionCreators.readOperatorSucces(response));
+      yield put(salesActionCreators.readSalesSucces(response));
       yield put(commonActionCreators.success(response));
     } else {
       yield put(commonActionCreators.error(response));
     }
   } catch (error) {
-    console.error("error orrcued in save operator saga", error);
+    console.error("error orrcued in save Sales saga", error);
     yield put(commonActionCreators.error(error));
   }
 }
 
-export function* readOperator(action) {
+export function* readSales(action) {
   try {
-    console.log("inside operator", action);
+    console.log("inside Sales", action);
     yield put(commonActionCreators.loading(true));
-    const response = yield doPost(constants.READ_OPERATOR, action.data);
+    const response = yield doPost(constants.READ_SALES, action.data);
     console.log("response", response);
     if (response.status == 200) {
-      yield put(operatorActionCreators.readOperatorSucces(response));
+      yield put(salesActionCreators.readSalesSucces(response));
       yield put(commonActionCreators.success(response));
     } else {
       yield put(commonActionCreators.error(response));
     }
   } catch (error) {
-    console.error("error orrcued in save operator saga", error);
+    console.error("error orrcued in save Sales saga", error);
     yield put(commonActionCreators.error(error));
   }
 }
 
-export function* operatorWatcher() {
+export function* salesWatcher() {
   yield [
-    takeLatest(OPERATOR_TYPE.CREATE_OPERATOR, saveOperator),
-    takeLatest(OPERATOR_TYPE.UPDATE_OPERATOR, editOperator),
-    takeLatest(OPERATOR_TYPE.READ_OPERATOR, readOperator)
+    takeLatest(SALES_TYPE.CREATE_SALES, saveSales),
+    takeLatest(SALES_TYPE.UPDATE_SALES, editSales),
+    takeLatest(SALES_TYPE.READ_SALES, readSales)
   ];
 }

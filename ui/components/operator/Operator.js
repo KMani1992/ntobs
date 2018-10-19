@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
-import {reduxForm, Field} from 'redux-form';
-import {connect} from 'react-redux';
-
+import { reduxForm, Field } from "redux-form";
+import { connect } from "react-redux";
+import * as operatorActionCreator from "../../actionCreators/Operator";
 
 class Operator extends Component {
-  
   constructor() {
     document.addEventListener("DOMContentLoaded", () => {
       const element = document.querySelectorAll(".tabs");
@@ -14,10 +13,10 @@ class Operator extends Component {
     });
   }
 
-editOperator=(e)=>{
+  editOperator = e => {
     console.log(e.value);
-
-}
+    this.props.load.editOperatorPopulate(e.value);
+  };
   render() {
     const { handleSubmit, operatorList } = this.props;
 
@@ -40,6 +39,12 @@ editOperator=(e)=>{
                 <form onSubmit={handleSubmit} className="col s12">
                   <div className="row no-pad-left">
                     <h5 className="left-align orange-text">Operator</h5>
+                    <Field
+                      name="mode"
+                      id="mode"
+                      component="input"
+                      type="hidden"
+                    />
                   </div>
                   <div className="row">
                     <div className="input-field col s12 m6">
@@ -171,7 +176,13 @@ editOperator=(e)=>{
                           <td>{operator.name}</td>
                           <td>{operator.login}</td>
                           <td>
-                              <button value={operator} onClick={this.editOperator}>Edit</button></td>
+                            <button
+                              value={operator}
+                              onClick={this.editOperator}
+                            >
+                              Edit
+                            </button>
+                          </td>
                         </tr>
                       );
                     })}
@@ -186,15 +197,12 @@ editOperator=(e)=>{
   }
 }
 
-const mapStateToProps=state=>(
-    {
-        initialValues:state.operator.default
-    });
+const mapStateToProps = state => ({
+  initialValues: state.operator.default
+});
 
-const mapActionToProps={
-    load:
-}
+const mapActionToProps = {
+  load: operatorActionCreator
+};
 
-
-
-export default reduxForm({form:'operator'})(Operator);
+export default reduxForm({ form: "operator" })(Operator);

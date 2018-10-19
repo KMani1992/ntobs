@@ -1,6 +1,5 @@
 import { takeLatest, put } from "redux-saga/effects";
 import * as COMPANY_TYPE from "../actionTypes/Company";
-import axios from "axios";
 import * as constants from "../util/constants";
 import { doPost } from "../util/httpWrapper";
 import * as commonActionCreators from "../actionCreators/Common";

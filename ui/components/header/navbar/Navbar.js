@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
-import { Link, Redirect, withRouter } from "react-router-dom";
+import { Link, Redirect, withRouter, NavLink } from "react-router-dom";
 
 class Navbar extends Component {
   constructor(props) {
@@ -40,35 +40,24 @@ class Navbar extends Component {
     if (sessionUser) {
       menus = (
         <div>
-          <ul id="dropdown1" class="dropdown-content">
-            <li>
-              <a href="#!">one</a>
-            </li>
-            <li>
-              <a href="#!">two</a>
-            </li>
-            <li class="divider" />
-            <li>
-              <a href="#!">three</a>
-            </li>
-            <li>
-              <a href="#!">
-                <i class="material-icons">view_module</i>four
-              </a>
-            </li>
-            <li>
-              <a href="#!">
-                <i class="material-icons">cloud</i>five
-              </a>
-            </li>
-          </ul>
-
+          
           <ul className="right hide-on-med-and-down">
             <li>
-              <a class="dropdown-trigger btn" href="#" data-target="dropdown1">
-                Drop Me!
-              </a>
+              <NavLink className="waves-effect waves-light btn" to="/operator">Operator</NavLink>
             </li>
+            <li>
+              <NavLink className="waves-effect waves-light btn" to="/pcontrol">PControl</NavLink>
+            </li>
+            <li>
+              <NavLink className="waves-effect waves-light btn" to="/product">Product</NavLink>
+            </li>
+            <li>
+              <NavLink className="waves-effect waves-light btn" to="/product">Sales</NavLink>
+            </li>
+            <li>
+              <NavLink className="waves-effect waves-light btn" to="/product">Sales Report</NavLink>
+            </li>
+
             <li>Welcome {sessionUser.operator.name}</li>
             <li>
               <a className="btn waves-effect waves-light" onClick={this.logout}>
@@ -79,6 +68,21 @@ class Navbar extends Component {
 
           <ul id="nav-mobile" className="sidenav">
             <li>Welcome {sessionUser.operator.name}</li>
+            <li>
+              <NavLink className="waves-effect waves-light btn" to="/operator">Operator</NavLink>
+            </li>
+            <li>
+              <NavLink className="waves-effect waves-light btn" to="/pcontrol">PControl</NavLink>
+            </li>
+            <li>
+              <NavLink className="waves-effect waves-light btn" to="/product">Product</NavLink>
+            </li>
+            <li>
+              <NavLink className="waves-effect waves-light btn" to="/product">Sales</NavLink>
+            </li>
+            <li>
+              <NavLink className="waves-effect waves-light btn" to="/product">Sales Report</NavLink>
+            </li>            
             <li>
               <a onClick={this.logout}>Log Out</a>
             </li>
