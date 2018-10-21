@@ -13,6 +13,9 @@ module.exports=(api)=>{
     .post(operatorController.createOperator)
     .get(operatorController.getAllOperator);
 
+    api.route(cons.signupOperator)
+    .post(operatorController.signupOperator)
+
     api.route(cons.updateOperator)
     .put(operatorController.updateOperator);
 }

@@ -1,4 +1,4 @@
-import { takeLatest } from "redux-saga";
+import { takeLatest,put } from "redux-saga/effects";
 import * as PCONTROl_TYPE from "../actionTypes/PControl";
 import * as constants from "../util/constants";
 import { doPost } from "../util/httpWrapper";

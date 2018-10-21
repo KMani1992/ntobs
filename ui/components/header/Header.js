@@ -6,6 +6,11 @@ import * as commonActionCreators from "../../actionCreators/Common";
 
 class Header extends Component {
   
+  constructor(props){
+    super(props);
+    M.AutoInit();
+  }
+
   componentDidUpdate(prevProps) {
     
     const { common, commonAction } = this.props;
@@ -20,7 +25,7 @@ class Header extends Component {
 
     if (prevProps.common.fail !== common.fail && common.fail) {
       M.toast({
-        html: `<span>${common.msg}!</span>&nbsp;<p>[${common.error}]</p>`,
+        html: `<span>${common.msg}!</span>&nbsp;<p>${common.error? `[${common.error}]`:'' }</p>`,
         completeCallback: () => commonAction.clear(),
         displayLength:7000,
         classes:'red'

@@ -1,17 +1,25 @@
 import * as SALES from "../actionTypes/Sales";
-export default (state = {}, action) => {
-  switch (action.type) {    
+import SalesState from './SalesState';
+
+export default (state = SalesState, action) => {
+
+  const {type,data}=action;
+  const nextState={
+    ...state
+  }
+
+  switch (type) {    
     case SALES.CREATE_SALES:
-      return type.data;
+      return data;
     case SALES.READ_SALES:
-      return type.data;
+      return data;
       case SALES.READ_SALES_SUCCESS:
-      return type.data;
+      return data;
     case SALES.UPDATE_SALES:
-      return type.data;
+      return data;
     case SALES.EDIT_SALES_POPULATE:
-      return type.data;
+      return data;
     default:
-      return state;
+      return nextState;
   }
 };

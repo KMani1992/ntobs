@@ -16,7 +16,9 @@ cons.updateProduct = apiUrl + "/product/:id";
 cons.readOperator = apiUrl + "/:id/operator/single";
 cons.createOperator = apiUrl + "/operator";
 cons.updateOperator = apiUrl + "/operator/:id";
+cons.signupOperator = apiUrl + "/operator/signup";
 cons.login = apiUrl + "/auth/login";
+
 
 cons.readSales = apiUrl + "/sales/:billNo";
 cons.createSales = apiUrl + "/sales";

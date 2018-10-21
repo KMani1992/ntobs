@@ -1,17 +1,25 @@
 import * as OPERATOR from "../actionTypes/Operator";
-export default (state = {}, action) => {
-  switch (action.type) {    
-    case OPERATOR.CREATE_OPERATOR:
-      return type.data;
-    case OPERATOR.READ_OPERATOR:
-      return type.data;
+import OperatorInitialState from './OperatorState';
+
+export default (state = OperatorInitialState, action) => {
+  const {type,data}=action;
+  const nextState={...state};
+  
+  switch (action.type) {            
       case OPERATOR.READ_OPERATOR_SUCCESS:
-      return type.data;
-    case OPERATOR.UPDATE_OPERATOR:
-      return type.data;
-    case OPERATOR.EDIT_OPERATOR_POPULATE:
-      return type.data;
+      return {
+        ...nextState,
+        operatorList:[...data]        
+      };   
+      case OPERATOR.EDIT_OPERATOR_POPULATE:
+      console.log("red e pop",data);
+      return {
+        ...nextState,
+        default:{
+          ...data
+        }
+      } 
     default:
-      return state;
+      return nextState;
   }
 };

@@ -1,64 +1,58 @@
 import React, { Component } from "react";
-import $ from "jquery";
+//import $ from "jquery";
 import { Link, Redirect, withRouter, NavLink } from "react-router-dom";
+import * as util from "../../../util/util";
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
 
-    (function($) {
-      $(function() {
-        $(".sidenav").sidenav();
-      }); // end of document ready
-    })(jQuery); // end of jQuery name space
-  }
-
-  componentDidUpdate(prevProps) {
-    
-    if(this.props!==prevProps){
-      (function($) {
-      $(function() {
-        $(".dropdown-trigger").dropdown();
-      }); // end of document ready
-    })(jQuery); // end of jQuery name space
-    }
-
+    document.addEventListener("DOMContentLoaded", function() {
+      var elems = document.querySelectorAll(".sidenav");
+      var instances = M.Sidenav.init(elems);
+    });
 
   }
 
   logout = () => {
-    window.sessionStorage.removeItem("ntobs-login");
-    this.props.history.push("/");
+    util.clearLogin();
+    this.props.history.push(util.HOME);
   };
 
   render() {
     let menus = null;
-    const sessionUser = JSON.parse(
-      window.sessionStorage.getItem("ntobs-login")
-    );
     //console.log("sessionUser", sessionUser);
-    if (sessionUser) {
+    if (util.getUserName()) {
       menus = (
         <div>
-          
           <ul className="right hide-on-med-and-down">
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/operator">Operator</NavLink>
+              <NavLink className="waves-effect waves-light" to={util.OPERATOR}>
+                Operator
+              </NavLink>
             </li>
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/pcontrol">PControl</NavLink>
+              <NavLink className="waves-effect waves-light" to={util.PCONTROL}>
+                PControl
+              </NavLink>
             </li>
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/product">Product</NavLink>
+              <NavLink className="waves-effect waves-light" to={util.PRODUCT}>
+                Product
+              </NavLink>
             </li>
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/product">Sales</NavLink>
+              <NavLink className="waves-effect waves-light" to={util.SALES}>
+                Sales
+              </NavLink>
             </li>
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/product">Sales Report</NavLink>
+              <NavLink className="waves-effect waves-light" to={util.SALES_RPT}>
+                Sales Report
+              </NavLink>
             </li>
 
-            <li>Welcome {sessionUser.operator.name}</li>
+            <li>Welcome {util.getUserName()}</li>
             <li>
               <a className="btn waves-effect waves-light" onClick={this.logout}>
                 Log Out
@@ -67,22 +61,34 @@ class Navbar extends Component {
           </ul>
 
           <ul id="nav-mobile" className="sidenav">
-            <li>Welcome {sessionUser.operator.name}</li>
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/operator">Operator</NavLink>
+              <a className="orange-text">Welcome {util.getUserName()}</a>
             </li>
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/pcontrol">PControl</NavLink>
+              <NavLink className="waves-effect waves-light" to={util.OPERATOR}>
+                Operator
+              </NavLink>
             </li>
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/product">Product</NavLink>
+              <NavLink className="waves-effect waves-light" to={util.PCONTROL}>
+                PControl
+              </NavLink>
             </li>
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/product">Sales</NavLink>
+              <NavLink className="waves-effect waves-light" to={util.PRODUCT}>
+                Product
+              </NavLink>
             </li>
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/product">Sales Report</NavLink>
-            </li>            
+              <NavLink className="waves-effect waves-light" to={util.SALES}>
+                Sales
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="waves-effect waves-light" to={util.SALES_RPT}>
+                Sales Report
+              </NavLink>
+            </li>
             <li>
               <a onClick={this.logout}>Log Out</a>
             </li>
@@ -94,13 +100,19 @@ class Navbar extends Component {
         <div>
           <ul className="right hide-on-med-and-down">
             <li>
-              <Link to="/login">Log In</Link>              
+              <Link to={util.LOGIN}>Log In</Link>
+            </li>
+            <li>
+              <Link to={util.SIGNUP}>Sign Up</Link>
             </li>
           </ul>
 
           <ul id="nav-mobile" className="sidenav">
             <li>
-              <Link to="/login">Log In</Link>              
+              <Link to={util.LOGIN}>Log In</Link>
+            </li>
+            <li>
+              <Link to={util.SIGNUP}>Sign Up</Link>
             </li>
           </ul>
         </div>
@@ -114,7 +126,7 @@ class Navbar extends Component {
             <Link
               id="logo-container"
               title="non tag based online billing system"
-              to="/"
+              to={util.HOME}
               className="brand-logo"
             >
               NTOBS
@@ -131,11 +143,10 @@ class Navbar extends Component {
 }
 
 export default withRouter(Navbar);
-/*
-{window.location.pathname === "/login" ? (
-                <Link to="/company">Create Company</Link>
-              ) : (
-                <Link to="/login">Log In</Link>
-              )}
-              {"msg":"Login Success","operator":{"type":"admin","authType":"local","status":"active","_id":"5bc40375a7718c260749a0f7","name":"admin user","loginId":"new@email.com","password":"sha1$31aebf5c$1$ffd24c350c165e54e2d0e248f051285a9b9ebc34","domain":"new","created":"2018-10-15T03:03:17.871Z","updated":"2018-10-15T03:03:17.871Z","__v":0}}
-*/
+
+//for backup purpose
+// (function($) {
+//   $(function() {
+//     $(".sidenav").sidenav();
+//   }); // end of document ready
+// })(jQuery); // end of jQuery name space

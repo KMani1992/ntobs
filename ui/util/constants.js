@@ -12,9 +12,10 @@ export const CREATE_PRODUCT = apiUrl + "/product";
 export const READ_PRODUCT = apiUrl + "/product";
 export const UPDATE_PRODUCT = apiUrl + "/product/:id";
 
-export const READ_OPERATOR = apiUrl + "/:id/operator/single";
+export const READ_OPERATOR = apiUrl + "/operator";
 export const CREATE_OPERATOR = apiUrl + "/operator";
-export const UPDATE_OPERATOR = apiUrl + "/operator/:id";
+export const UPDATE_OPERATOR = apiUrl + "/operator/";
+export const SIGNUP_OPERATOR = apiUrl + "/operator/signup";
 
 
 export const READ_SALES = apiUrl + "/sales/:billNo";

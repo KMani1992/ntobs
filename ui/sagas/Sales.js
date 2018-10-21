@@ -1,4 +1,4 @@
-import { takeLatest } from "redux-saga";
+import { takeLatest,put } from "redux-saga/effects";
 import * as SALES_TYPE from "../actionTypes/Sales";
 import * as constants from "../util/constants";
 import { doPost } from "../util/httpWrapper";

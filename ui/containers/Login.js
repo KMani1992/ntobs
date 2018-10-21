@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as loginActionCreators from "../actionCreators/Login";
 import { Redirect } from "react-router-dom";
+import * as util from '../util/util';
 
 class LoginContainer extends Component {
   submit = values => {
@@ -15,7 +16,7 @@ class LoginContainer extends Component {
     const { common } = this.props;
 
     if (common.done) {        
-      return <Redirect to="/dashboard" />;
+      return <Redirect to={util.DASHBOARD} />;
     }
 
     return <Login onSubmit={this.submit} />;

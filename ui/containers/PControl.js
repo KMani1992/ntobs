@@ -8,19 +8,19 @@ class PControlContainer extends Component{
 
     submit = values => {
     if (values.mode === "create") {
-      this.props.operatorAction.createOperator(values);
+      this.props.operatorAction.createPControl(values);
     } else if (values.mode === "edit") {
-      this.props.operatorAction.editOperator(values);
+      this.props.operatorAction.editPControl(values);
     }
   };
 
     render(){
-        return (<PControl handleSubmit={this.submit}/>);
+        return (<PControl handleSubmit={this.submit} pcontrolList={this.props.pcontrolList}/>);
     }
 }
 
 const mapStateToProps=(state)=>({
-pcontrolList:state.pcontrolList
+pcontrolList:state.pcontrol.pcontrolList
 })
 
 const maDispatchToProps=(dispatch)=>({

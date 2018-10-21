@@ -5,9 +5,46 @@ const transaction = new mongooseTransaction();
 
 var mongoose = require("mongoose");
 
+
+exports.signupOperator = (req, res, next) => {
+
+console.log("operator auth details", req.body);
+  let operator = req.body;
+  Operator.find({
+    $and: [{ domain: operator.domain }]
+  })
+    .then(result => {
+      //console.log("search", result);
+      if (result.length > 0) {
+
+        operator.password = util.hashPassword(operator.password);  
+  Operator.create(operator)
+    .then(result => {
+      res.status(200).send({ msg: "Signed Up successfully", result });
+    })
+    .catch(error => {
+      res.status(400).send({ msg: "Sign Up failed", error });
+    });
+        
+      } else {
+        res.status(401).send({
+          msg: "Sign Up Failed, Please Try Agin",
+          error: { error: { name: "Invalid domain" } }
+        });
+      }
+    })
+    .catch(error => {
+      console.log("Sign Up failed", error);
+      res.status(400).send({ msg: "Sign Up failed", error });
+    });
+
+  
+  
+};
+
 exports.createOperator = (req, res, next) => {
   let operator = req.body;
-  operator.password = util.hashPassword(operator.password);
+  operator.password = util.hashPassword(operator.password);  
   Operator.create(operator)
     .then(result => {
       res.status(200).send({ msg: "Operator created successfully", result });
@@ -50,7 +87,7 @@ exports.login = (req, res, next) => {
   console.log("operator auth details", req.body);
   const authInfo = req.body;  
   Operator.find({
-    $and: [{ domain: authInfo.domain }, { loginId: authInfo.login }]
+    $and: [{ domain: authInfo.domain }, { loginId: authInfo.login },{status:"active"}]
   })
     .then(result => {
       //console.log("search", result);
@@ -71,7 +108,7 @@ exports.login = (req, res, next) => {
       } else {
         res.status(401).send({
           msg: "Login Failed, Please Try Agin",
-          error: { error: { name: "Invalid login or domain" } }
+          error: { error: { name: "Invalid login/domain/not yet activated " } }
         });
       }
     })

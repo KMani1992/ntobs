@@ -1,17 +1,26 @@
 import * as PCONTROL from "../actionTypes/PControl";
-export default (state = {}, action) => {
-  switch (action.type) {    
+import PControlState from './PControlState';
+
+export default (state = PControlState, action) => {
+
+const {type,data}=action;
+
+const nextState ={
+  ...state
+};
+
+  switch (type) {    
     case PCONTROL.CREATE_PCONTROL:
-      return type.data;
+      return data;
     case PCONTROL.READ_PCONTROL:
-      return type.data;
+      return data;
       case PCONTROL.READ_PCONTROL_SUCCESS:
-      return type.data;
+      return data;
     case PCONTROL.UPDATE_PCONTROL:
-      return type.data;
+      return data;
     case PCONTROL.EDIT_PCONTROL_POPULATE:
-      return type.data;
+      return data;
     default:
-      return state;
+      return nextState;
   }
 };

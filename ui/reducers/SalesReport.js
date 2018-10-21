@@ -1,11 +1,20 @@
 import * as SALES_REPORT from "../actionTypes/SalesReport";
-export default (state = {}, action) => {
-  switch (action.type) {    
+import SalesReportState from './SalesReportState';
+
+export default (state = SalesReportState, action) => {
+
+  const nextState={
+    ...state
+  }
+  
+  const {type,data}=action;
+
+  switch (type) {    
     case SALES_REPORT.READ_SALES_REPORT:
-      return type.data;    
+      return data;    
       case SALES_REPORT.READ_SALES_REPORT_SUCCESS:
-      return type.data;
+      return data;
     default:
-      return state;
+      return nextState;
   }
 };

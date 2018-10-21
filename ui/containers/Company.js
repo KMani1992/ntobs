@@ -6,8 +6,9 @@ import Company from "../components/company/Company";
 import { Redirect } from "react-router-dom";
 
 class CompanyContainer extends Component {
+  
   submit = values => {
-    console.log(values, "comp state", companyState);
+    console.log(values, "comp state");
     let companyState = { company: {}, operator: {} };
     companyState.company.name = values.company;
     companyState.company.domain = values.domain;

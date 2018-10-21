@@ -14,12 +14,12 @@ class SalesContainer extends Component {
   };
 
   render() {
-    return <Sales handleSubmit={this.submit} />;
+    return <Sales handleSubmit={this.submit} salesList={this.props.salesList} />;
   }
 }
 
 const mapStateToProps = state => ({
-  salesList: state.salesList
+  salesList: state.sales.salesList
 });
 
 const maDispatchToProps = dispatch => ({

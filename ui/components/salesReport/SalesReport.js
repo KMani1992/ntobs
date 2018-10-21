@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 import * as salesreportActionCreator from "../../actionCreators/SalesReport";
 
 class SalesReport extends Component {
-  constructor() {
+  constructor(props) {
+    super(props);
     document.addEventListener("DOMContentLoaded", () => {
       const element = document.querySelectorAll(".tabs");
       const instance = M.Tabs.init(element);
@@ -18,7 +19,7 @@ class SalesReport extends Component {
     this.props.load.editSalesReportPopulate(e.value);
   };
   render() {
-    const { handleSubmit, salesreportList } = this.props;
+    const { handleSubmit, salesReportList } = this.props;
 
     return (
       <main>

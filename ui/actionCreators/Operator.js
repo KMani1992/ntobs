@@ -25,7 +25,7 @@ export function editOperator(data){
 
 
 export function editOperatorPopulate(data){
-
+    console.log("edit oper popul",data);
     return {
         type:OPERATOR.EDIT_OPERATOR_POPULATE,        
         data
@@ -36,6 +36,14 @@ export function createOperator(data){
 
     return {
         type:OPERATOR.CREATE_OPERATOR,        
+        data
+    }
+}
+
+export function signupOperator(data){
+
+    return {
+        type:OPERATOR.SIGNUP_OPERATOR,        
         data
     }
 }

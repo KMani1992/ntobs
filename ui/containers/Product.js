@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Operator from "../components/product/Product";
+import Product from "../components/product/Product";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as productActionCreator from "../actionCreators/Product";
@@ -14,12 +14,12 @@ class ProductContainer extends Component {
   };
 
   render() {
-    return <Product handleSubmit={this.submit} />;
+    return <Product handleSubmit={this.submit} productList={this.props.productList} />;
   }
 }
 
 const mapStateToProps = state => ({
-  productList: state.productList
+  productList: state.product.productList
 });
 
 const maDispatchToProps = dispatch => ({

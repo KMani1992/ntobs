@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 import * as productActionCreator from "../../actionCreators/Product";
 
 class Product extends Component {
-  constructor() {
+  constructor(props) {
+    super(props);
     document.addEventListener("DOMContentLoaded", () => {
       const element = document.querySelectorAll(".tabs");
       const instance = M.Tabs.init(element);
