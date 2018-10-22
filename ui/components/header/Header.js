@@ -8,7 +8,6 @@ class Header extends Component {
   
   constructor(props){
     super(props);
-    M.AutoInit();
   }
 
   componentDidUpdate(prevProps) {

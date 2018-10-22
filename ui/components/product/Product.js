@@ -1,184 +1,224 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import $ from "jquery";
 import { reduxForm, Field } from "redux-form";
+import { Link } from "react-router-dom";
+import FormatDate from "../util/FormatDate";
 import { connect } from "react-redux";
-import * as productActionCreator from "../../actionCreators/Product";
+
+const status = ["active", "inactive", "locked"];
+
+const wasType = ["percentpg", "valuepg", "lumpsum"];
+const mcType = ["valuepg", "lumpsum", "percentpg"];
+const itemType = ["rate", "weight"];
 
 class Product extends Component {
   constructor(props) {
     super(props);
-    document.addEventListener("DOMContentLoaded", () => {
-      const element = document.querySelectorAll(".tabs");
-      const instance = M.Tabs.init(element);
+    this.state = {
+      editMode: false
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    const { common, editProduct } = this.props;
+
+    if (prevProps.common.done !== common.done && common.done) {
+      this.setState({ editMode: false });
+      editProduct(null, null);
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener("DOMContentLoaded", function() {
+      const elems = document.querySelectorAll("select");
+      const instances = M.FormSelect.init(elems);
     });
   }
 
-  editProduct = e => {
-    console.log(e.value);
-    this.props.load.editProductPopulate(e.value);
-  };
   render() {
-    const { handleSubmit, productList } = this.props;
-
-    /**
- * 
- *     name: { type: String },
-    metal: { type: String },
-    category: { type: String },
-    type: { type: String, enum: ["rate", "weight"], default: "weight" },
-    wastageType: { type: String, enum: ["percentpg", "valuepg","lumpsum"],
-     default: "percentpg" },
-    wastage: { type: Number },
-    mcType: { type: String, enum: ["percentpg", "valuepg","lumpsum"], 
-    default: "valuepg" },
-    makingCharge: { type: Number,default:0.0 },
-    otherCharge: { type: Number,default:0.0 },
-    description: { type: String,default:"" },
-    weight: { type: Number,default:0.0 },
-    value: { type: Number,default:0 },    
-    quantity: { type: Number,default:1 },
-    status: { type: String, enum: ["active", "inactive", "locked"] },
-    created: { type: Date, default: Date.now },
-    updated: { type: Date, default: Date.now },
-    updatedBy: { type: schema.Types.ObjectId, ref: "operator" },
-    domain
- */
+    const {
+      handleSubmit,
+      productList,
+      editProduct,
+      reset,
+      pcontrolVal
+    } = this.props;
     return (
       <main>
         <div className="section no-pad-bot">
           <div className="container">
             <div className="row">
+              <h5 className="center-align orange-text">Product</h5>
+            </div>
+            <div className="row">
               <div className="col s12">
                 <ul className="tabs">
-                  <li className="tab col s3">
+                  <li id="tab1" className="tab col s3">
                     <Link to="#entry">Entry</Link>
                   </li>
-                  <li className="tab col s3">
+                  <li id="tab2" className="tab col s3">
                     <Link to="#view">View</Link>
                   </li>
                 </ul>
               </div>
               <div id="entry" className="col s12">
                 <form onSubmit={handleSubmit} className="col s12">
-                  <div className="row no-pad-left">
-                    <h5 className="left-align orange-text">Product</h5>
-                    <Field
-                      name="mode"
-                      id="mode"
-                      component="input"
-                      type="hidden"
-                    />
-                  </div>
                   <div className="row">
-                    <div className="input-field col s12 m6">
+                    <div className="col s12 m4">
+                      <label for="name">Product Name</label>
                       <Field
-                        name="productName"
+                        name="name"
                         id="name"
                         component="input"
                         type="text"
                         className="validate"
                       />
-                      <label for="name">Product Name</label>
+                    </div>
+                    <div className="col s12 m4">
+                      <label for="metal">Metal</label>
+                      <div>
+                        <Field
+                          id="metal"
+                          name="metal"
+                          component="select"
+                          className="browser-default"
+                        >
+                          {pcontrolVal.length > 0 &&
+                            pcontrolVal[0].map(metal => {
+                              return (
+                                <option key={metal} value={metal}>
+                                  {metal}
+                                </option>
+                              );
+                            })}
+                        </Field>
+                      </div>
                     </div>
 
-                    <div className="input-field col s12 m6">
-                      <Field
-                        name="metal"
-                        id="metal"
-                        component="input"
-                        type="combobox"
-                        className="validate"
-                      />
-                      <label for="login">Metal</label>
+                    <div className="col s12 m4">
+                      <label for="category">Category</label>
+                      <div>
+                        <Field
+                          id="category"
+                          name="category"
+                          component="select"
+                          className="browser-default"
+                        >
+                          {pcontrolVal.length > 1 &&
+                            pcontrolVal[1].map(cat => {
+                              return (
+                                <option key={cat} value={cat}>
+                                  {cat}
+                                </option>
+                              );
+                            })}
+                        </Field>
+                      </div>
                     </div>
                   </div>
 
                   <div className="row">
-                    <div className="input-field col s12 m6">
-                      <Field
-                        name="category"
-                        id="name"
-                        component="input"
-                        type="combobox"
-                        className="validate"
-                      />
-                      <label for="name">Category Name</label>
+                    <div className="col s12 m4">
+                      <label for="metal">Product Type</label>
+                      <div>
+                        <Field
+                          id="type"
+                          name="type"
+                          component="select"
+                          className="browser-default"
+                        >
+                          {pcontrolVal.length > 2 &&
+                            pcontrolVal[2].map(typ => {
+                              return (
+                                <option key={typ} value={typ}>
+                                  {typ}
+                                </option>
+                              );
+                            })}
+                        </Field>
+                      </div>
                     </div>
 
-                    <div className="input-field col s12 m6">
-                      <Field
-                        name="productType"
-                        id="type"
-                        component="input"
-                        type="combobox"
-                        className="validate"
-                      />
-                      <label for="login">Product Type</label>
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="input-field col s12 m6">
-                      <Field
-                        name="wastageType"
-                        id="name"
-                        component="input"
-                        type="combobox"
-                        className="validate"
-                      />
-                      <label for="name">Wastage authType</label>
+                    <div className="col s12 m4">
+                      <label for="wastageType">Wastage Type</label>
+                      <div>
+                        <Field
+                          id="wastageType"
+                          name="wastageType"
+                          component="select"
+                          className="browser-default"
+                        >
+                          {wasType.map(wtype => {
+                            return (
+                              <option key={wtype} value={wtype}>
+                                {wtype}
+                              </option>
+                            );
+                          })}
+                        </Field>
+                      </div>
                     </div>
 
-                    <div className="input-field col s12 m6">
+                    <div className="col s12 m4">
+                      <label for="wastage">Wastage</label>
                       <Field
                         name="wastage"
-                        id="type"
+                        id="wastage"
                         component="input"
-                        type="combobox"
+                        type="text"
                         className="validate"
                       />
-                      <label for="login">Wastage</label>
                     </div>
                   </div>
 
                   <div className="row">
-                    <div className="input-field col s12 m6">
-                      <Field
-                        name="mcType"
-                        id="name"
-                        component="input"
-                        type="combobox"
-                        className="validate"
-                      />
-                      <label for="name">MakingCharge Type</label>
+                    <div className="col s12 m4">
+                      <label for="mcType">MC Type</label>
+                      <div>
+                        <Field
+                          id="mcType"
+                          name="mcType"
+                          component="select"
+                          className="browser-default"
+                        >
+                          {mcType.map(mc => {
+                            return (
+                              <option key={mc} value={mc}>
+                                {mc}
+                              </option>
+                            );
+                          })}
+                        </Field>
+                      </div>
                     </div>
 
-                    <div className="input-field col s12 m6">
+                    <div className="col s12 m4">
+                      <label for="makingCharge" title="Making Charge Type">
+                        Making Charge Type
+                      </label>
                       <Field
                         name="makingCharge"
-                        id="mcType"
+                        id="makingCharge"
                         component="input"
-                        type="combobox"
+                        type="text"
                         className="validate"
                       />
-                      <label for="mcType">Making Charge</label>
                     </div>
-                  </div>
 
-                  <div className="row">
-                    <div className="input-field col s12 m6">
+                    <div className="col s12 m4">
+                      <label for="otherCharge">Other Charge</label>
                       <Field
                         name="otherCharge"
                         id="otherCharge"
                         component="input"
-                        type="number"
+                        type="text"
                         className="validate"
                       />
-                      <label for="otherCharge">Other Charge</label>
                     </div>
+                  </div>
 
-                    <div className="input-field col s12 m6">
+                  <div className="row">
+                    <div className="col s12 m4">
+                      <label for="description">Description</label>
                       <Field
                         name="description"
                         id="description"
@@ -186,67 +226,83 @@ class Product extends Component {
                         type="text"
                         className="validate"
                       />
-                      <label for="login">Description</label>
                     </div>
-                  </div>
 
-                  <div className="row">
-                    <div className="input-field col s12 m6">
+                    <div className="col s12 m4">
+                      <label for="weight">Weight</label>
                       <Field
                         name="weight"
                         id="weight"
                         component="input"
-                        type="number"
-                        className="validate"
+                        type="text"
                       />
-                      <label for="weight">Weight</label>
                     </div>
 
-                    <div className="input-field col s12 m6">
+                    <div className="col s12 m4">
+                      <label for="value">Value</label>
                       <Field
                         name="value"
                         id="value"
                         component="input"
-                        type="number"
-                        className="validate"
+                        type="text"
                       />
-                      <label for="value">Value</label>
                     </div>
                   </div>
 
                   <div className="row">
-                    <div className="input-field col s12 m6">
+                    <div className="col s12 m4">
+                      <label for="quantity">Quantity</label>
                       <Field
-                        name="domain"
-                        id="domain"
+                        name="quantity"
+                        id="quantity"
                         component="input"
                         type="text"
-                        className="validate"
                       />
-                      <label for="domain">Domain Name</label>
                     </div>
-                    <div className="input-field col s12 m6">
-                      <Field
-                        name="status"
-                        id="status"
-                        component="input"
-                        type="text"
-                        className="validate"
-                      />
+
+                    <div className="col s12 m4">
                       <label for="status">Status</label>
+                      <div>
+                        <Field
+                          id="status"
+                          name="status"
+                          component="select"
+                          className="browser-default"
+                        >
+                          {status.map(sts => {
+                            return (
+                              <option key={sts} value={sts}>
+                                {sts}
+                              </option>
+                            );
+                          })}
+                        </Field>
+                      </div>
+                    </div>
+
+                    <div className="input-field col s12 m4">
+                      <button
+                        className="btn waves-effect waves-light orange"
+                        type="submit"
+                        name="action"
+                      >
+                        Save
+                        <i className="material-icons right">send</i>
+                      </button>&nbsp;&nbsp;
+                      <button
+                        type="button"
+                        className="btn waves-effect waves-light orange"
+                        onClick={e => {
+                          this.setState({ editMode: false });
+                          editProduct(e, null);
+                          reset();
+                        }}
+                      >
+                        Reset
+                      </button>
                     </div>
                   </div>
 
-                  <div className="row">
-                    <button
-                      className="btn waves-effect waves-light orange"
-                      type="submit"
-                      name="action"
-                    >
-                      Save
-                      <i className="material-icons right">send</i>
-                    </button>
-                  </div>
                   <br />
                   <br />
                   <br />
@@ -254,10 +310,10 @@ class Product extends Component {
                 </form>
               </div>
               <div id="view" className="col s12">
-                <table>
+                <table className="striped responsive-table pad2y">
                   <thead>
                     <tr>
-                      <th>S.no.</th>
+                      <th>#</th>
                       <th>Product Name</th>
                       <th>Metal</th>
                       <th>Category</th>
@@ -282,10 +338,31 @@ class Product extends Component {
                     {productList.map((product, i) => {
                       return (
                         <tr key={i}>
+                          <td>{i + 1}</td>
                           <td>{product.name}</td>
-                          <td>{product.login}</td>
+                          <td>{product.loginId}</td>
+                          <td>{product.domain}</td>
+                          <td>{product.type}</td>
+                          <td>{product.authType}</td>
+                          <td>{product.status}</td>
                           <td>
-                            <button value={product} onClick={this.editproduct}>
+                            <FormatDate date={product.created} />
+                          </td>
+                          <td>
+                            <FormatDate date={product.updated} />
+                          </td>
+                          <td>
+                            {product.updatedBy ? product.updatedBy : null}
+                          </td>
+                          <td>
+                            <button
+                              className="btn waves-effect waves-light orange"
+                              onClick={e => {
+                                console.log(product);
+                                editProduct(e, product);
+                                this.setState({ editMode: true });
+                              }}
+                            >
                               Edit
                             </button>
                           </td>
@@ -294,6 +371,8 @@ class Product extends Component {
                     })}
                   </tbody>
                 </table>
+                <br />
+                <br />
               </div>
             </div>
           </div>
@@ -303,12 +382,14 @@ class Product extends Component {
   }
 }
 
+const ProductInit = reduxForm({
+  form: "product",
+  enableReinitialize: true
+})(Product);
+
 const mapStateToProps = state => ({
-  initialValues: state.product.default
+  initialValues: state.product.default,
+  common: state.common
 });
 
-const mapActionToProps = {
-  load: productActionCreator
-};
-
-export default reduxForm({ form: "product" })(Product);
+export default connect(mapStateToProps, null)(ProductInit);

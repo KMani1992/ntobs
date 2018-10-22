@@ -32,13 +32,13 @@ const PrivateRoute=({component:Component,...rest})=>{
     else if(unAuthPageList.indexOf(rest.path)!=-1){
         if(util.getDomain()){
             util.clearLogin();
-            return <Route {...rest} render={(props)=><Redirect to="/login"/>}/>
+            return <Redirect to="/login"/>
         }else{
             return <Route {...rest} render={(props)=><Component {...props}/>}/>                
         }
     }
     else{
-        return <Route {...rest} render={(props)=><Redirect to="/login"/>}/>
+        return <Redirect to="/login"/>;
     }
 }
 

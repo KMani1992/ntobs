@@ -56,7 +56,7 @@ exports.createOperator = (req, res, next) => {
 
 exports.getAllOperator = (req, res, next) => {
   Operator.find({ domain: req.headers.domain })
-    .sort({ name: -1 })
+    .sort({ _id: -1 })
     .then(result => {
       res.status(200).send(result);
     })

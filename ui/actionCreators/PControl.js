@@ -7,6 +7,15 @@ export function readPControl(){
     }
 }
 
+
+export function readPControlVal(data){
+
+    return {
+        type:PCONTROL.READ_PCONTROL_VAL,
+        data        
+    }
+}
+
 export function readPControlSucces(data){
 
     return {
@@ -15,6 +24,13 @@ export function readPControlSucces(data){
     }
 }
 
+export function readPControlValSucces(data){
+
+    return {
+        type:PCONTROL.READ_PCONTROL_VAL_SUCCESS,        
+        data
+    }
+}
 export function editPControl(data){
 
     return {

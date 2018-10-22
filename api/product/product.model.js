@@ -4,7 +4,7 @@ const schema = mongoose.Schema;
 
 const operatorSchema = new schema({
     name: { type: String },
-    metal: { type: String },
+    metal: { type: String }, 
     category: { type: String },
     type: { type: String, enum: ["rate", "weight"], default: "weight" },
     wastageType: { type: String, enum: ["percentpg", "valuepg","lumpsum"],

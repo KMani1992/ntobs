@@ -23,9 +23,15 @@ class Operator extends Component {
     }
   }
 
+  componentDidMount() {
+    document.addEventListener("DOMContentLoaded", function() {
+      const elems = document.querySelectorAll("select");
+      const instances = M.FormSelect.init(elems);
+    });
+  }
+
   render() {
     const { handleSubmit, operatorList, editOperator, reset } = this.props;
-
     return (
       <main>
         <div className="section no-pad-bot">
@@ -71,15 +77,22 @@ class Operator extends Component {
                   <div className="row">
                     <div className="col s12 m6">
                       <label for="status">Status</label>
-                      <Field name="status" component="select">
-                        {status.map(sts => {
-                          return (
-                            <option key={sts} value={sts}>
-                              {sts}
-                            </option>
-                          );
-                        })}
-                      </Field>
+                      <div>
+                        <Field
+                          id="status"
+                          name="status"
+                          component="select"
+                          className="browser-default"
+                        >
+                          {status.map(sts => {
+                            return (
+                              <option key={sts} value={sts}>
+                                {sts}
+                              </option>
+                            );
+                          })}
+                        </Field>
+                      </div>                      
                     </div>
                     {!this.state.editMode && (
                       <div className="col s12 m6">
@@ -103,7 +116,7 @@ class Operator extends Component {
                       >
                         Save
                         <i className="material-icons right">send</i>
-                      </button>&nbsp;
+                      </button>&nbsp;&nbsp;
                       <button
                         type="button"
                         className="btn waves-effect waves-light orange"
@@ -177,8 +190,8 @@ class Operator extends Component {
                     })}
                   </tbody>
                 </table>
-                <br/>
-                <br/>
+                <br />
+                <br />
               </div>
             </div>
           </div>

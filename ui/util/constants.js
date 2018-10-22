@@ -5,12 +5,12 @@ export const LOGIN = apiUrl + "/auth/login";
 
 export const CREATE_PARAM_CONTROL = apiUrl + "/parameter";
 export const READ_PARAM_CONTROL = apiUrl + "/parameter";
-export const UPDATE_PARAM_CONTROL = apiUrl + "/parameter/:id";
+export const UPDATE_PARAM_CONTROL = apiUrl + "/parameter/";
 
 
 export const CREATE_PRODUCT = apiUrl + "/product";
 export const READ_PRODUCT = apiUrl + "/product";
-export const UPDATE_PRODUCT = apiUrl + "/product/:id";
+export const UPDATE_PRODUCT = apiUrl + "/product/";
 
 export const READ_OPERATOR = apiUrl + "/operator";
 export const CREATE_OPERATOR = apiUrl + "/operator";

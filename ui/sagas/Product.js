@@ -1,7 +1,7 @@
 import { takeLatest,put } from "redux-saga/effects";
 import * as PRODUCT_TYPE from "../actionTypes/Product";
 import * as constants from "../util/constants";
-import { doPost } from "../util/httpWrapper";
+import { doPost,doGet,doPut } from "../util/httpWrapper";
 import * as commonActionCreators from "../actionCreators/Common";
 import * as productActionCreators from "../actionCreators/Product";
 
@@ -12,7 +12,9 @@ export function* saveProduct(action) {
     const response = yield doPost(constants.CREATE_PRODUCT, action.data);
     console.log("response", response);
     if (response.status == 200) {
-      yield put(productActionCreators.readProductSucces(response));
+      const readResponse = yield doGet(constants.READ_PRODUCT);
+      console.log("readResponse", readResponse);
+      yield put(productActionCreators.readProductSucces(readResponse.data));            
       yield put(commonActionCreators.success(response));
     } else {
       yield put(commonActionCreators.error(response));
@@ -27,10 +29,10 @@ export function* editProduct(action) {
   try {
     console.log("inside Product edit", action);
     yield put(commonActionCreators.loading(true));
-    const response = yield doPost(constants.UPDATE_PRODUCT, action.data);
+    const response = yield doPut(constants.UPDATE_PRODUCT + action.data.id, action.data);
     console.log("response", response);
     if (response.status == 200) {
-      yield put(productActionCreators.readProductSucces(response));
+      yield put(productActionCreators.readProductSucces(response.data));
       yield put(commonActionCreators.success(response));
     } else {
       yield put(commonActionCreators.error(response));
@@ -41,15 +43,14 @@ export function* editProduct(action) {
   }
 }
 
-export function* readProduct(action) {
+export function* readProduct() {
   try {
-    console.log("inside Product", action);
+    console.log("inside Product");
     yield put(commonActionCreators.loading(true));
-    const response = yield doPost(constants.READ_PRODUCT, action.data);
+    const response = yield doGet(constants.READ_PRODUCT);
     console.log("response", response);
     if (response.status == 200) {
-      yield put(productActionCreators.readProductSucces(response));
-      yield put(commonActionCreators.success(response));
+      yield put(productActionCreators.readProductSucces(response.data));      
     } else {
       yield put(commonActionCreators.error(response));
     }

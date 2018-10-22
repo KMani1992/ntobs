@@ -10,6 +10,6 @@ module.exports=(api)=>{
     api.route(cons.updateParameterControl)
     .put(parameterController.updateParameter);
 
-    api.route(cons.readParameterControl)
-    .get(parameterController.getParameterById);
+    api.route(cons.readParameterControlVal)
+    .get(parameterController.getParameterByKey);
 }

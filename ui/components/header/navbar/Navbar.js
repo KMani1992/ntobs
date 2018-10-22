@@ -1,21 +1,23 @@
 import React, { Component } from "react";
 //import $ from "jquery";
-import { Link, Redirect, withRouter, NavLink } from "react-router-dom";
+import { Link, withRouter, NavLink } from "react-router-dom";
 import * as util from "../../../util/util";
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
+  }
 
+  componentDidMount(){
     document.addEventListener("DOMContentLoaded", function() {
-      var elems = document.querySelectorAll(".sidenav");
-      var instances = M.Sidenav.init(elems);
+      const elems = document.querySelectorAll(".sidenav");
+      const instances = M.Sidenav.init(elems);
     });
-
   }
 
   logout = () => {
     util.clearLogin();
+    this.setState({logout:true});
     this.props.history.push(util.HOME);
   };
 
@@ -125,7 +127,7 @@ class Navbar extends Component {
           <div className="nav-wrapper container">
             <Link
               id="logo-container"
-              title="non tag based online billing system"
+              title="Online Based A Non Taged Item Billing System"
               to={util.HOME}
               className="brand-logo"
             >

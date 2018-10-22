@@ -9,18 +9,28 @@ const nextState ={
   ...state
 };
 
-  switch (type) {    
-    case PCONTROL.CREATE_PCONTROL:
-      return data;
-    case PCONTROL.READ_PCONTROL:
-      return data;
+  switch (type) {        
       case PCONTROL.READ_PCONTROL_SUCCESS:
-      return data;
-    case PCONTROL.UPDATE_PCONTROL:
-      return data;
+      return {
+        ...nextState,
+        pcontrolList:[...data]        
+      };   
+    case PCONTROL.READ_PCONTROL_VAL_SUCCESS:
+      return {
+        ...nextState,
+        pcontrolVal:data
+      };   
     case PCONTROL.EDIT_PCONTROL_POPULATE:
-      return data;
+      console.log("red e pop",data);
+      return {
+        ...nextState,
+        default:{
+          ...data
+        }
+      }
     default:
       return nextState;
   }
 };
+
+
