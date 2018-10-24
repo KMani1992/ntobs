@@ -459,7 +459,7 @@ console.log("salesListData inside if",salesListData);
                     </div>
                     </React.Fragment>) : null}
                     <div className="col s12 m2">
-                      <label for="lastbillno">Last BillNo</label>
+                      <label for="lastbillno">Last Bill Number</label>
                       <input
                         name="lastbillno"
                         id="lastbillno"
