@@ -7,10 +7,18 @@ export function readSales(){
     }
 }
 
-export function readSalesSucces(data){
+export function readSalesSuccess(data){
 
     return {
         type:SALES.READ_SALES_SUCCESS,        
+        data
+    }
+}
+
+export function updateSalesList(data){
+
+    return {
+        type:SALES.UPDATE_SALES_LIST,        
         data
     }
 }

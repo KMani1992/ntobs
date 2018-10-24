@@ -3,6 +3,7 @@ import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
 import FormatDate from "../util/FormatDate";
 import { connect } from "react-redux";
+import './Product.css';
 
 const status = ["active", "inactive", "locked"];
 
@@ -82,11 +83,12 @@ class Product extends Component {
                           component="select"
                           className="browser-default"
                         >
-                          {pcontrolVal.length > 0 &&
-                            pcontrolVal[0].map(metal => {
+                          <option value=""></option>
+                          {pcontrolVal.valList.length > 0 &&
+                            pcontrolVal.valList[0].value.split(",").map(metal => {
                               return (
-                                <option key={metal} value={metal}>
-                                  {metal}
+                                <option key={metal} value={metal.split(":")[0]}>
+                                  {metal.split(":")[0]}
                                 </option>
                               );
                             })}
@@ -103,11 +105,12 @@ class Product extends Component {
                           component="select"
                           className="browser-default"
                         >
-                          {pcontrolVal.length > 1 &&
-                            pcontrolVal[1].map(cat => {
+                          <option value=""></option>
+                          {pcontrolVal.valList.length > 1 &&
+                            pcontrolVal.valList[1].value.split(",").map(cat => {
                               return (
-                                <option key={cat} value={cat}>
-                                  {cat}
+                                <option key={cat} value={cat.split(":")[0]}>
+                                  {cat.split(":")[0]}
                                 </option>
                               );
                             })}
@@ -126,8 +129,8 @@ class Product extends Component {
                           component="select"
                           className="browser-default"
                         >
-                          {pcontrolVal.length > 2 &&
-                            pcontrolVal[2].map(typ => {
+                          {pcontrolVal.valList.length > 2 &&
+                            pcontrolVal.valList[2].value.split(",").map(typ => {
                               return (
                                 <option key={typ} value={typ}>
                                   {typ}
@@ -310,7 +313,8 @@ class Product extends Component {
                 </form>
               </div>
               <div id="view" className="col s12">
-                <table className="striped responsive-table pad2y">
+                <div className="table-wrapper-scroll-x">
+                  <table className="striped responsive-table pad2y">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -332,18 +336,27 @@ class Product extends Component {
                       <th>Updated</th>
                       <th>Updated By</th>
                       <th>Domain</th>
+                      <th>Option</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody> 
                     {productList.map((product, i) => {
                       return (
                         <tr key={i}>
                           <td>{i + 1}</td>
                           <td>{product.name}</td>
-                          <td>{product.loginId}</td>
-                          <td>{product.domain}</td>
+                          <td>{product.metal}</td>
+                          <td>{product.category}</td>
                           <td>{product.type}</td>
-                          <td>{product.authType}</td>
+                          <td>{product.wastageType}</td>
+                          <td>{product.wastage}</td>
+                          <td>{product.mcType}</td>
+                          <td>{product.makingCharge}</td>
+                          <td>{product.otherCharge}</td>
+                          <td>{product.description}</td>
+                          <td>{product.weight}</td>
+                          <td>{product.value}</td>
+                          <td>{product.quantity}</td>
                           <td>{product.status}</td>
                           <td>
                             <FormatDate date={product.created} />
@@ -354,6 +367,7 @@ class Product extends Component {
                           <td>
                             {product.updatedBy ? product.updatedBy : null}
                           </td>
+                          <td>{product.domain}</td>
                           <td>
                             <button
                               className="btn waves-effect waves-light orange"
@@ -371,6 +385,7 @@ class Product extends Component {
                     })}
                   </tbody>
                 </table>
+                </div>
                 <br />
                 <br />
               </div>

@@ -1,7 +1,7 @@
 export default {
   default: {
     name: "",
-    type: "",
+    type: "text",
     value: "",
     status: "active",
     domain: "",
@@ -9,5 +9,5 @@ export default {
     id:""
   },
   pcontrolList: [],
-  pcontrolVal:{},
+  pcontrolVal:{pid:"",valList:[]},
 };

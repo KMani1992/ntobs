@@ -1,6 +1,34 @@
 export default {
   default: {
-    
+    product: "",
+    metal: "",
+    category: "",
+    type: "weight",
+    wastageType: "percentpg",
+    wastage: "",
+    mcType: "valuepg",
+    makingCharge: "0.0",
+    otherCharge: "0.0",
+    description: "",
+    weight: "0.0",
+    quantity: "1",
+    domain: "",
+    mode: "create",
+    idx: -1,
+    tax: "0",
+    rate: "0",
+    netVal:0,
+    mcVal:0,
+    wasVal:0,
+    ocVal:0,
+    taxVal:0,
+    grosVal:0,
+    saleTax:0,
+    saleBillAmt:0,
+    saleQuantity: 0,
+    saleWeight: 0,
   },
-  salesList: []
+  salesList: [],
+  saleListLength:0,
+  billNo:""
 };

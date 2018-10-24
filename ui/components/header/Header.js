@@ -17,7 +17,7 @@ class Header extends Component {
     if (prevProps.common.done !== common.done && common.done) {
       M.toast({
         html: common.msg,
-        completeCallback: () => commonAction.clear(),
+        completeCallback: () => commonAction.clear(),                
         classes:'green'
       });
     }

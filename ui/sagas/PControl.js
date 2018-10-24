@@ -69,7 +69,7 @@ export function* readPControlVal(action) {
     const response = yield doGet(constants.READ_PARAM_CONTROL + '/' + action.data.key);
     console.log("response", response);
     if (response.status == 200) {
-      yield put(pcontrolActionCreators.readPControlValSucces({pid:pid,valList:response.data}));    
+      yield put(pcontrolActionCreators.readPControlValSucces({pid:action.data.pid,valList:response.data}));    
     } else {
       yield put(commonActionCreators.error(response));
     }

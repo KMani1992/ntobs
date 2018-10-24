@@ -11,9 +11,10 @@ export function* saveSales(action) {
     yield put(commonActionCreators.loading(true));
     const response = yield doPost(constants.CREATE_SALES, action.data);
     console.log("response", response);
-    if (response.status == 200) {
-      yield put(salesActionCreators.readSalesSucces(response));
-      yield put(commonActionCreators.success(response));
+    if (response.status == 200) {      
+      yield put(salesActionCreators.updateSalesList({salesList:[],saleListLength: 99999}));      
+      yield put(commonActionCreators.success(response)); 
+      yield put(salesActionCreators.readSalesSuccess(response.data));           
     } else {
       yield put(commonActionCreators.error(response));
     }
@@ -29,8 +30,7 @@ export function* editSales(action) {
     yield put(commonActionCreators.loading(true));
     const response = yield doPost(constants.UPDATE_SALES, action.data);
     console.log("response", response);
-    if (response.status == 200) {
-      yield put(salesActionCreators.readSalesSucces(response));
+    if (response.status == 200) {      
       yield put(commonActionCreators.success(response));
     } else {
       yield put(commonActionCreators.error(response));

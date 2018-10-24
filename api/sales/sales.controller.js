@@ -18,7 +18,7 @@ exports.createSales = (req, res, next) => {
                 transaction.insert("sales", data);
             });
             const finalRes = await transaction.run();            
-            res.status(201).send({ billNo: billNo, msg: "Sales created successfully" });
+            res.status(200).send({ billNo: billNo, msg: `Sales created successfully,[Bill Number:${billNo}` });
         } catch (error) {
             res.status(400).send({ error, msg: "Sales Creation failed" });
             console.log("Sales creation error =>", error);

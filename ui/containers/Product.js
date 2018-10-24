@@ -20,14 +20,14 @@ class ProductContainer extends Component {
       category: "",
       type: "weight",
       wastageType: "percentpg",
-      wastage: "",
+      wastage: 0.0,
       mcType: "valuepg",
-      makingCharge: "0.0",
-      otherCharge: "0.0",
+      makingCharge: 0.0,
+      otherCharge: 0.0,
       description: "",
-      weight: "0.0",
-      value: "0",
-      quantity: "1",
+      weight: 0.0,
+      value: 0,
+      quantity: 1,
       status: "active",
       domain: "",
       mode: "create",
@@ -67,7 +67,7 @@ class ProductContainer extends Component {
     this.props.productAction.readProduct();
     this.props.pcontrolAction.readPControlVal({
       pid: "init",
-      key: "METAL,CATEGORY"
+      key: "METAL,CATEGORY,TYPE"
     });
     const element = document.querySelectorAll(".tabs");
     let instance = M.Tabs.init(element);

@@ -32,7 +32,9 @@ export function* editProduct(action) {
     const response = yield doPut(constants.UPDATE_PRODUCT + action.data.id, action.data);
     console.log("response", response);
     if (response.status == 200) {
-      yield put(productActionCreators.readProductSucces(response.data));
+      const readResponse = yield doGet(constants.READ_PRODUCT);
+      console.log("readResponse", readResponse);
+      yield put(productActionCreators.readProductSucces(readResponse.data));                  
       yield put(commonActionCreators.success(response));
     } else {
       yield put(commonActionCreators.error(response));

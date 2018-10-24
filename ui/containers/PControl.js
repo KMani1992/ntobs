@@ -15,7 +15,7 @@ class PControlContainer extends Component {
     console.log("p cont contain", e, value);
     let data = {
       name: "",
-      type: "",
+      type: "text",
       value: "",
       status: "active",
       domain: "",

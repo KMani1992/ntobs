@@ -1,4 +1,5 @@
 const PControl = require("mongoose").model("parameter");
+const PControlRef = require("mongoose").model("parameterRef");
 const util = require("../../util/util");
 const mongooseTransaction = require("mongoose-transactions");
 const transaction = new mongooseTransaction();
@@ -10,7 +11,16 @@ exports.createParameter = (req, res, next) => {
   parameter.domain = req.headers.domain;
   PControl.create(parameter)
     .then(result => {
-      res.status(200).send({ msg: "Parameter created successfully", result });
+      PControlRef.create(parameter)
+        .then(resultRef => {
+          console.log("resultRef", resultRef);
+          res
+            .status(200)
+            .send({ msg: "Parameter created successfully", result });
+        })
+        .catch(error => {
+          res.status(400).send({ msg: "Parameter creation failed in reference", error });
+        });
     })
     .catch(error => {
       res.status(400).send({ msg: "Parameter creation failed", error });
@@ -32,13 +42,13 @@ exports.getAllParameter = (req, res, next) => {
 exports.getParameterByKey = (req, res, next) => {
   console.log("parameter Key name", req.params.key);
 
-  
   let valueList = [],
     count = 0,
     keyList = [];
 
   keyList = req.params.key.split(",");
   keyList.some(key => {
+    console.log("process key key", key);
     PControl.findOne({
       $and: [
         { domain: req.headers.domain },
@@ -50,7 +60,17 @@ exports.getParameterByKey = (req, res, next) => {
         count = count + 1;
         valueList.push(result);
         if (count == keyList.length) {
-          res.status(200).send(valueList);
+          const resArr = [];
+          keyList.forEach(skey => {
+            let found = { key: skey, value: "", found: false };
+            valueList.forEach(val => {
+              if (val != null && val.name == skey) {
+                found = val;
+              }
+            });
+            resArr.push(found);
+          });
+          res.status(200).send(resArr);
         }
       })
       .catch(error => {
@@ -93,9 +113,16 @@ exports.updateParameter = (req, res, next) => {
         req.body
       )
         .then(result => {
-          res
-            .status(200)
-            .send({ result, msg: "Parameter updated successfully" });
+          PControlRef.create(req.body)
+            .then(resultRef => {
+              console.log("resultRef", resultRef);
+              res
+                .status(200)
+                .send({ result, msg: "Parameter updated successfully" });
+            })
+            .catch(error => {
+              res.status(400).send({ msg: "Parameter updation failed in reference", error });
+            });
         })
         .catch(error => {
           res.status(400).send({ msg: "Parameter updation failed", error });

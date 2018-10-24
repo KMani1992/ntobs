@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 																							
-
+ 
 const operatorSchema = new schema({
     name: { type: String },
     metal: { type: String }, 
     category: { type: String },
-    type: { type: String, enum: ["rate", "weight"], default: "weight" },
+    type: { type: String, enum: ["rate", "weight","other"], default: "weight" },
     wastageType: { type: String, enum: ["percentpg", "valuepg","lumpsum"],
      default: "percentpg" },
     wastage: { type: Number },
