@@ -22,7 +22,7 @@ import {Redirect} from 'react-router-dom';
 
 const unAuthPageList=[util.HOME,util.LOGIN,util.SIGNUP,util.COMPANY];
 const authPageList=[util.DASHBOARD,util.OPERATOR,util.PCONTROL,
-util.PRODUCT,util.SALES,util.SALES_RPT]
+util.PRODUCT,util.SALES,util.SALES_RPT,util.SALES_CANCEL]
 
 const PrivateRoute=({component:Component,...rest})=>{
 
@@ -60,7 +60,7 @@ const PageRouter = ({ history }) => (
                         <PrivateRoute exact path="/sales" component={SalesContainer} />
                         <PrivateRoute exact path="/sales-report" component={SalesReportContainer} />
                         <PrivateRoute exact path="/signup" component={SignupContainer} />
-                        <PrivateRoute exact path="/sale-cancel" component={SalesCancelContainer} />                        
+                        <PrivateRoute exact path="/sales-cancel" component={SalesCancelContainer} />                        
                     </Switch>                
                 <Footer />
             </React.Fragment>

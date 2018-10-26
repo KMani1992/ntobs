@@ -9,10 +9,12 @@ class SalesCancel extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { common } = this.props;
+
+    const { common, editSales,reset } = this.props;
 
     if (prevProps.common.done !== common.done && common.done) {
       editSales(null, null);
+      reset();
     }
   }
 
@@ -40,7 +42,7 @@ class SalesCancel extends Component {
                 </div>
               </div>
               <div className="row">
-                <div className="col s12 m3">
+                <div className="col">
                   <label for="CancelledDescription">Cancel Description</label>
                   <Field
                     name="CancelledDescription"
@@ -86,7 +88,7 @@ const SalesCancelInit = reduxForm({
 })(SalesCancel);
 
 const mapStateToProps = state => ({
-  initialValues: state.sales.default,
+  initialValues: state.salesCancel,
   common: state.common
 });
 

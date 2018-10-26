@@ -10,8 +10,8 @@ class SalesCancelContainer extends Component {
     super(props);
   }
 
-  cancelSale = (e, billNo) => {
-    e && e.preventDefault();
+  cancelSale = (values) => {
+    //e && e.preventDefault();
     const { salesReport } = this.props;
     console.log("sales bill number", billNo);
 
@@ -20,21 +20,22 @@ class SalesCancelContainer extends Component {
       cancelledDate: Date.now,
       CancelledBy: util.getOperatorId(),
       domain: util.getDomain(),
-      CancelledDescription: "Canceled by user"
+      CancelledDescription: values.CancelledDescription
     };
 
     this.props.salesAction.cancelSaleBill({
-      billNo: billNo,
+      billNo: values.billNo,
       cancelData
     });
   };
 
-  editSales(e,data){
+  
+  editSales=(e,data)=>{
     this.props.salesAction.clearCancelSaleBill({billNo:"",CancelledDescription:""})
   }
 
   render() {
-    return <SalesCancelInit editSales={this.editSales} />;
+    return <SalesCancelInit editSales={this.editSales} onSubmit={this.cancelSale} />;
   }
 }
 

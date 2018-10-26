@@ -1,7 +1,7 @@
 import { takeLatest,put } from "redux-saga/effects";
 import * as SALES_TYPE from "../actionTypes/Sales";
 import * as constants from "../util/constants";
-import { doPost } from "../util/httpWrapper";
+import { doPost, doPut } from "../util/httpWrapper";
 import * as commonActionCreators from "../actionCreators/Common";
 import * as salesActionCreators from "../actionCreators/Sales";
 
@@ -14,7 +14,7 @@ export function* saveSales(action) {
     if (response.status == 200) {      
       yield put(salesActionCreators.updateSalesList({salesList:[],saleListLength: 99999}));      
       yield put(commonActionCreators.success(response)); 
-      //yield put(salesActionCreators.readSalesSuccess(response.data));           
+      yield put(salesActionCreators.readSalesSuccess(response.data));           
     } else {
       yield put(commonActionCreators.error(response));
     }

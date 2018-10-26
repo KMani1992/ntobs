@@ -13,7 +13,7 @@ export const SALES_CANCEL="/sales-cancel"
 
 export const getUserName=()=>{
     const sessionUser = JSON.parse(
-      window.sessionStorage.getItem("ntobs-login")
+      window.localStorage.getItem("ntobs-login")
     );
 
     return sessionUser ? sessionUser.operator.name : null;
@@ -21,7 +21,7 @@ export const getUserName=()=>{
 
 export const getDomain=()=>{
     const sessionUser = JSON.parse(
-      window.sessionStorage.getItem("ntobs-login")
+      window.localStorage.getItem("ntobs-login")
     );
 
     return sessionUser ? sessionUser.operator.domain : null;
@@ -29,12 +29,12 @@ export const getDomain=()=>{
 
 export const getOperatorId=()=>{
     const sessionUser = JSON.parse(
-      window.sessionStorage.getItem("ntobs-login")
+      window.localStorage.getItem("ntobs-login")
     );
 
     return sessionUser ? sessionUser.operator._id : null;
 }
 
 export const clearLogin=()=>{
-  window.sessionStorage.removeItem("ntobs-login");
+  window.localStorage.removeItem("ntobs-login");
 }

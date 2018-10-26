@@ -12,7 +12,7 @@ export function* doLogin(action) {
     const response = yield doPost(constants.LOGIN, action.data);
     console.log("do login response received", response);
     if (response.status == 200) {
-        window.sessionStorage.setItem("ntobs-login",JSON.stringify(response.data));
+        window.localStorage.setItem("ntobs-login",JSON.stringify(response.data));
         yield put(commonActionCreators.success(response));
     } else {
       yield put(commonActionCreators.error(response));

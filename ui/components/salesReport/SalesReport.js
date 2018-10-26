@@ -4,6 +4,7 @@ import $ from "jquery";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import * as salesreportActionCreator from "../../actionCreators/SalesReport";
+const moment = require("moment");
 
 // require("datatables.net-dt")();
 // require("datatables.net-buttons-dt")();
@@ -14,84 +15,183 @@ import * as salesreportActionCreator from "../../actionCreators/SalesReport";
 
 //var $  = require( 'jquery' );
 //var dt = require( 'datatables.net' )( window, $ );
+let datatableRef = null;
+let dataHead = [
+  "billDate",
+  "billNo",
+  "cancelled",
+  "product",
+  "metal",
+  "category",
+  "type",
+  "wastageType",
+  "wastage",
+  "mcType",
+  "makingCharge",
+  "otherCharge",
+  "description",
+  "weight",
+  "quantity",
+  "tax",
+  "rate",
+  "netVal",
+  "mcVal",
+  "wasVal",
+  "ocVal",
+  "taxVal",
+  "grosVal"
+];
 
 class SalesReport extends Component {
   constructor(props) {
     super(props);
-    document.addEventListener("DOMContentLoaded", () => {
-      const element = document.querySelectorAll(".tabs");
-      const instance = M.Tabs.init(element);
-    });
+    this.state = {
+      datatableRef: null,
+      productKeyVal: {}
+    };
   }
 
-componentDidMount(){
-  //$.DataTable = require("datatables.net");
-  //var $  = require( 'jquery' );
-  //var dt = require( 'datatables.net' );
-
-//   (function($) {
-//   $(function() {
-//     //$(".sidenav").sidenav();
-//     $('#myTable').DataTable();
-//   }); // end of document ready
-// })(jQuery); // end of jQuery name space
-
-}
   componentDidUpdate(prevProps) {
-    const { rptData } = this.props;
-    console.log("rptData",rptData);
+    const { rptData, productList } = this.props;
 
-    if (prevProps.rptData != rptData) {
+    console.log("rptData", rptData, prevProps.rptData != rptData, datatableRef);
 
-      (function($) {
-  $(function() {
-    //$(".sidenav").sidenav();
-    $('#myTable').DataTable({
-        data: rptData.salesList,
-        columns: [
-          { title: "#" },
-          { title: "Product Name" },
-          { title: "Metal" },
-          { title: "Category" },
-          { title: "Type" },
-          { title: "Wastage Type" },
-          { title: "Wastage" },
-          { title: "MC Type" },
-          { title: "MC" },
-          { title: "Other Charge" },
-          { title: "Description" },
-          { title: "Weight" },
-          { title: "Quantity" },
-          { title: "Tax" },
-          { title: "Rate" },
-          { title: "Net Value" },
-          { title: "MC Value" },
-          { title: "Wastage Value" },
-          { title: "OC Value" },
-          { title: "Tax Value" },
-          { title: "Gross Value" },
-          { title: "Edit" },
-          { title: "Remove" }
-        ]
+    if (prevProps.productList != productList) {
+      console.log("inside prod list did update");
+      let productKeyVal = {};
+      productList.forEach(pl => {
+        productKeyVal[pl._id] = pl.name;
       });
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
 
-
+      this.setState({ productKeyVal });
     }
+
+    if (
+      prevProps.rptData != rptData &&
+      datatableRef != null &&
+      rptData.salesReport
+    ) {
+      let prkey = this.state.productKeyVal;
+
+      console.log("rptData.salesReport", rptData.salesReport);
+      const mastDt = [];
+      let sNo = 0;
+
+      rptData.salesReport.forEach(dt => {
+        sNo += 1;
+        console.log("dt", sNo, dt);
+
+        mastDt.push([
+          sNo,
+          moment(dt.billDate).format("DD/MM/YYYY HH:mm:ss"),
+          dt.billNo,
+          dt.cancelled,
+          prkey[dt.product],
+          dt.metal,
+          dt.category,
+          dt.type,
+          dt.wastageType,
+          dt.wastage,
+          dt.mcType,
+          dt.makingCharge,
+          dt.otherCharge,
+          dt.description,
+          dt.weight,
+          dt.quantity,
+          dt.tax,
+          dt.rate,
+          dt.netVal,
+          dt.mcVal,
+          dt.wasVal,
+          dt.ocVal,
+          dt.taxVal,
+          dt.grosVal
+        ]);
+      });
+
+      console.log("mastDt", mastDt);
+
+      datatableRef.clear().draw();
+      datatableRef.rows.add(mastDt);
+      datatableRef.columns.adjust().draw();
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener("DOMContentLoaded", function() {
+      const elems = document.querySelectorAll("select");
+      const instances = M.FormSelect.init(elems);
+    });
+
+    (function($) {
+      $(function() {
+        const buttonCommon = {
+          exportOptions: {
+            format: {
+              body: function(data, row, column, node) {
+                // Strip $ from salary column to make it numeric
+                return column === 5 ? data.replace(/[$,]/g, "") : data;
+              }
+            }
+          }
+        };
+
+        //$(".sidenav").sidenav();
+        datatableRef = $("#myTable").DataTable({
+          data: [],
+          columns: [
+            { title: "#" },
+            { title: "Bill Date" },
+            { title: "Bill Number" },
+            { title: "Bill Cancelled" },
+            { title: "Product Name" },
+            { title: "Metal" },
+            { title: "Category" },
+            { title: "Type" },
+            { title: "Wastage Type" },
+            { title: "Wastage" },
+            { title: "MC Type" },
+            { title: "MC" },
+            { title: "Other Charge" },
+            { title: "Description" },
+            { title: "Weight" },
+            { title: "Quantity" },
+            { title: "Tax" },
+            { title: "Rate" },
+            { title: "Net Value" },
+            { title: "MC Value" },
+            { title: "Wastage Value" },
+            { title: "OC Value" },
+            { title: "Tax Value" },
+            { title: "Gross Value" }
+          ],
+          dom: "Bfrtip",
+          buttons: [
+            $.extend(true, {}, buttonCommon, {
+              extend: "copyHtml5"
+            }),
+            $.extend(true, {}, buttonCommon, {
+              extend: "excelHtml5"
+            }),
+            $.extend(true, {}, buttonCommon, {
+              extend: "pdfHtml5"
+            })
+          ]
+        });
+
+        console.log("datatableRef", datatableRef);
+        //this.setState({ datatableRef });
+      }); // end of document ready
+    })(jQuery); // end of jQuery name space
   }
 
   editSalesReport = e => {
     console.log(e.value);
     this.props.load.editSalesReportPopulate(e.value);
   };
+
   render() {
-    const {
-      handleSubmit,
-      pcontrolVal,
-      productList,
-      cancelSale      
-    } = this.props;
+    const { handleSubmit, pcontrolVal, productList, cancelSale } = this.props;
 
     return (
       <main>
@@ -183,20 +283,13 @@ componentDidMount(){
                         <option />
                         {productList.map(prod => {
                           return (
-                            <option
-                              key={prod._id}
-                              value={`${prod._id}:${prod.name}`}
-                            >
+                            <option key={prod._id} value={prod._id}>
                               {prod.name}
                             </option>
                           );
                         })}
                       </Field>
                     </div>
-                  </div>
-                  <div className="col s12 m3">
-                    <label for="lastbillno">Last Bill Number</label>
-                    <input name="lastbillno" id="lastbillno" type="text" />
                   </div>
 
                   <div className="input-field col s12 m3">
