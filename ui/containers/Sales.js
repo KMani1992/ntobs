@@ -392,3 +392,4 @@ const maDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, maDispatchToProps)(SalesContainer);
+ 

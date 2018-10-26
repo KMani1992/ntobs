@@ -53,6 +53,11 @@ class Navbar extends Component {
                 Sales Report
               </NavLink>
             </li>
+            <li>
+              <NavLink className="waves-effect waves-light" to={util.SALES_CANCEL}>
+                Sales Cancel
+              </NavLink>
+            </li>
 
             <li>Welcome {util.getUserName()}</li>
             <li>
@@ -89,6 +94,11 @@ class Navbar extends Component {
             <li>
               <NavLink className="waves-effect waves-light" to={util.SALES_RPT}>
                 Sales Report
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="waves-effect waves-light" to={util.SALES_CANCEL}>
+                Sales Cancel
               </NavLink>
             </li>
             <li>

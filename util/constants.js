@@ -25,4 +25,6 @@ cons.readSales = apiUrl + "/sales";
 cons.createSales = apiUrl + "/sales";
 cons.updateSales = apiUrl + "/sales/:billNo";
 
+cons.readSalesRpt = apiUrl + "/sales/rpt";
+
 module.exports = cons;

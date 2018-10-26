@@ -47,3 +47,19 @@ export function createSales(data){
         data
     }
 }
+
+export function cancelSaleBill(data){
+
+    return {
+        type:SALES.CANCEL_SALE_BILL, 
+        data       
+    }
+}
+
+export function clearCancelSaleBill(data){
+
+    return {
+        type:SALES.CLEAR_CANCEL_SALE_BILL, 
+        data       
+    }
+}

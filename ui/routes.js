@@ -14,6 +14,7 @@ import ProductContainer from './containers/Product'
 import SalesContainer from './containers/Sales'
 import SalesReportContainer from './containers/SalesReport'
 import SignupContainer from './containers/Signup'
+import SalesCancelContainer from './containers/SalesCancel'
 import * as util from './util/util'
 import {Redirect} from 'react-router-dom';
 
@@ -59,6 +60,7 @@ const PageRouter = ({ history }) => (
                         <PrivateRoute exact path="/sales" component={SalesContainer} />
                         <PrivateRoute exact path="/sales-report" component={SalesReportContainer} />
                         <PrivateRoute exact path="/signup" component={SignupContainer} />
+                        <PrivateRoute exact path="/sale-cancel" component={SalesCancelContainer} />                        
                     </Switch>                
                 <Footer />
             </React.Fragment>

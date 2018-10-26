@@ -8,8 +8,8 @@ module.exports=(api)=>{
     .get(salesController.getAllSales);
 
     api.route(cons.updateSales)
-    .put(salesController.updateSales);
+    .put(salesController.cancelSales);
 
-    api.route(cons.readSales)
-    .get(salesController.getSalesByBillNo);
+    api.route(cons.readSalesRpt)
+    .get(salesController.getSalesRpt);
 }

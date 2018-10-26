@@ -1,7 +1,7 @@
 import { takeLatest,put } from "redux-saga/effects";
 import * as SALES_REPORT_TYPE from "../actionTypes/SalesReport";
 import * as constants from "../util/constants";
-import { doPost } from "../util/httpWrapper";
+import { doGet, doPut } from "../util/httpWrapper";
 import * as commonActionCreators from "../actionCreators/Common";
 import * as salesReportActionCreators from "../actionCreators/SalesReport";
 
@@ -10,11 +10,10 @@ export function* readSalesReport(action) {
   try {
     console.log("inside SalesReport", action);
     yield put(commonActionCreators.loading(true));
-    const response = yield doPost(constants.READ_SALES_REPORT, action.data);
+    const response = yield doGet(constants.READ_SALES_REPORT + action.data);
     console.log("response", response);
     if (response.status == 200) {
-      yield put(salesReportActionCreators.readSalesReportSucces(response));
-      yield put(commonActionCreators.success(response));
+      yield put(salesReportActionCreators.readSalesReportSucces(response.data));      
     } else {
       yield put(commonActionCreators.error(response));
     }
@@ -24,8 +23,10 @@ export function* readSalesReport(action) {
   }
 }
 
+
+
 export function* salesReportWatcher() {
   yield [
-    takeLatest(SALES_REPORT_TYPE.READ_SALES_REPORT, readSalesReport)
+    takeLatest(SALES_REPORT_TYPE.READ_SALES_REPORT, readSalesReport),    
   ];
 }

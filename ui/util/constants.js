@@ -20,7 +20,7 @@ export const SIGNUP_OPERATOR = apiUrl + "/operator/signup";
 
 export const READ_SALES = apiUrl + "/sales/:billNo";
 export const CREATE_SALES = apiUrl + "/sales";
-export const UPDATE_SALES = apiUrl + "/sales/:billNo";
+export const UPDATE_SALES = apiUrl + "/sales/";
 
-export const READ_SALES_REPORT = apiUrl + "/sales/report";
+export const READ_SALES_REPORT = apiUrl + "/sales/rpt";
 

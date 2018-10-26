@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-const operatorSchema = new schema({
+const salesSchema = new schema({
     billNo: { type: String },
     billDate: { type: Date, default:Date.now },    
     product: { type: schema.Types.ObjectId,ref:"product" },
@@ -36,6 +36,6 @@ const operatorSchema = new schema({
     domain:{type:String}
 })
 
-operatorSchema.index({ billNo: 1 });
+salesSchema.index({ billNo: 1 });
 
-mongoose.model("sales", operatorSchema);
+mongoose.model("sales", salesSchema);

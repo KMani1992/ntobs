@@ -9,6 +9,7 @@ export const PCONTROL="/pcontrol";
 export const PRODUCT="/product";
 export const SALES="/sales";
 export const SALES_RPT="/sales-report"
+export const SALES_CANCEL="/sales-cancel"
 
 export const getUserName=()=>{
     const sessionUser = JSON.parse(
