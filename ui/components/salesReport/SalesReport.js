@@ -200,7 +200,7 @@ class SalesReport extends Component {
             <div className="row">
               <form onSubmit={handleSubmit} className="col s12">
                 <div className="row no-pad-left">
-                  <h5 className="left-align orange-text">salesreport</h5>
+                  <h5 className="left-align orange-text">Sales Report</h5>
                 </div>
                 <div className="row">
                   <div className="input-field col s12 m3">
